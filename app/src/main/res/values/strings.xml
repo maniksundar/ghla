@@ -16,4 +16,5 @@
     <string name="log_in">Log In</string>
     <string name="full_name">full name</string>
     <string name="username_domain_com">username@domain.com</string>
+    <string name="mainlogo">Main Logo</string>
 </resources>
