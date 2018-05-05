@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".SignInActivity">
 
     <EditText
@@ -16,7 +17,8 @@
         android:background="@drawable/textview_gray"
         android:ems="10"
         android:inputType="text"
-        android:text="username@domain.com"
+        android:hint="username@domain.com"
+        android:textColorHint="@color/colorTextPlaceHolder"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -31,7 +33,8 @@
         android:background="@drawable/textview_gray"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="@string/full_name"
+        android:hint="@string/prompt_password"
+        android:textColorHint="@color/colorTextPlaceHolder"
         app:layout_constraintBottom_toTopOf="@+id/fullname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -46,7 +49,8 @@
         android:background="@drawable/textview_gray"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/full_name"
+        android:hint="@string/full_name"
+        android:textColorHint="@color/colorTextPlaceHolder"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
