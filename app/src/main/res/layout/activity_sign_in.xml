@@ -7,6 +7,34 @@
     android:background="@color/colorPrimary"
     tools:context=".SignInActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/mainlogo"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_ghana_logo" />
+
+    <TextView
+        android:id="@+id/logoTitle"
+        android:layout_width="113dp"
+        android:layout_height="93dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="8dp"
+        android:text="Ghana Library Authority"
+        android:textColor="@color/colorTextGreen"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="0dp"
@@ -70,18 +98,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="213dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:contentDescription="@string/mainlogo"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_ghana_logo" />
 
 </android.support.constraint.ConstraintLayout>
