@@ -17,7 +17,7 @@
         android:background="@drawable/textview_gray"
         android:ems="10"
         android:inputType="text"
-        android:hint="username@domain.com"
+        android:hint="@string/username_domain_com"
         android:textColorHint="@color/colorTextPlaceHolder"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
