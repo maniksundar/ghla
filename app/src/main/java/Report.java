@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public class Report {
-    Metric metric;
-    Status status;
+    Metric mMetric;
+    Status mStatus;
 
-    Report(Metric metric, Status status) {
-        this.metric = metric;
-        this.status = status;
+    Report(Metric mMetric, Status status) {
+        this.mMetric = mMetric;
+        this.mStatus = status;
     }
 
 }
