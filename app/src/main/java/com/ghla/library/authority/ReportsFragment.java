@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.ghla.library.authority.dummy.DummyContent;
 import com.ghla.library.authority.dummy.DummyContent.DummyItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -69,7 +70,8 @@ public class ReportsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyReportsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+//            recyclerView.setAdapter(new MyReportsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new ReportsCardViewAdapter());
         }
         return view;
     }
