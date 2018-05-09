@@ -22,11 +22,11 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                case R.id.navigation_report:
+                    mTextMessage.setText(R.string.title_report);
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                case R.id.navigation_profile:
+                    mTextMessage.setText(R.string.title_profile);
                     return true;
             }
             return false;
