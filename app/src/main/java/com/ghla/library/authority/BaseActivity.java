@@ -1,17 +1,23 @@
 package com.ghla.library.authority;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.ghla.library.authority.dummy.DummyContent;
 
-public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener {
+public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener {
 
-    private TextView mTextMessage;
+
+    private HomeFragment m_homeFragment;
+    private ReportsFragment m_reportsFragment;
+    private ProfileFragment m_profileFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -20,13 +26,13 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    switchToFragment(m_homeFragment);
                     return true;
                 case R.id.navigation_report:
-                    mTextMessage.setText(R.string.title_report);
+                    switchToFragment(m_reportsFragment);
                     return true;
                 case R.id.navigation_profile:
-                    mTextMessage.setText(R.string.title_profile);
+                    switchToFragment(m_profileFragment);
                     return true;
             }
             return false;
@@ -38,13 +44,26 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        m_homeFragment = new HomeFragment();
+        m_reportsFragment = new ReportsFragment();
+        m_profileFragment = new ProfileFragment();
     }
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    public void switchToFragment(Fragment fragment) {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.baseFrame, fragment).commit();
     }
 }
