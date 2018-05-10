@@ -17,6 +17,7 @@
 
     <color name="colorCardYellow">#ffd05b</color>
     <color name="colorCardGreen">#90dfaa</color>
+    <color name="colorCardPaleGreen">#c9e791</color>
     <color name="colorCardPink">#ebb2b2</color>
     <color name="colorCardOrange">#faceab</color>
     <color name="colorCardCyan">#5eddda</color>

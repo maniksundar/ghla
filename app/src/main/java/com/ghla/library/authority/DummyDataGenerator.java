@@ -3,7 +3,7 @@ package com.ghla.library.authority;
 import java.util.ArrayList;
 
 public class DummyDataGenerator {
-    static int COUNT_REPORT = 1;
+    static int COUNT_REPORT = 2;
     static int COUNT_QUESTION = 10;
 
     ArrayList<Report> getReports(){

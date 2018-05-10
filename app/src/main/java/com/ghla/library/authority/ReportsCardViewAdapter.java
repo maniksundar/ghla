@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ReportsCardView
             Report report = this.m_reports.get(i);
             CardViewHolder.vTitle.setText(report.getTitle());
             CardViewHolder.vConstraintLayout.setBackgroundColor(report.getColor(context));
+            CardViewHolder.vReportImageView.setBackgroundResource(report.getImage(context));
         }
 
         @Override
@@ -45,11 +47,13 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ReportsCardView
     public class CardViewHolder extends RecyclerView.ViewHolder {
         protected TextView vTitle;
         protected ConstraintLayout vConstraintLayout;
+        protected ImageView vReportImageView;
 
         public CardViewHolder(View v) {
             super(v);
             vTitle = (TextView) v.findViewById(R.id.report_title);
             vConstraintLayout = (ConstraintLayout) v.findViewById(R.id.report_layout);
+            vReportImageView = (ImageView) v.findViewById(R.id.report_image);
         }
     }
 }
