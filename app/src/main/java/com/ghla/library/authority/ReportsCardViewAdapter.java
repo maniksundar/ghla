@@ -6,7 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -30,8 +31,8 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ReportsCardView
         public void onBindViewHolder(final ReportsCardViewAdapter.CardViewHolder CardViewHolder, int i) {
             Report report = this.m_reports.get(i);
             CardViewHolder.vTitle.setText(report.getTitle());
-            CardViewHolder.vConstraintLayout.setBackgroundColor(report.getColor(context));
-            CardViewHolder.vReportImageView.setBackgroundResource(report.getImage(context));
+            CardViewHolder.vLayout.setBackgroundColor(report.getColor(context));
+            CardViewHolder.vReportImage.setImageResource(report.getImage(context));
         }
 
         @Override
@@ -46,14 +47,14 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ReportsCardView
 
     public class CardViewHolder extends RecyclerView.ViewHolder {
         protected TextView vTitle;
-        protected ConstraintLayout vConstraintLayout;
-        protected ImageView vReportImageView;
+        protected RelativeLayout vLayout;
+        protected ImageButton vReportImage;
 
         public CardViewHolder(View v) {
             super(v);
             vTitle = (TextView) v.findViewById(R.id.report_title);
-            vConstraintLayout = (ConstraintLayout) v.findViewById(R.id.report_layout);
-            vReportImageView = (ImageView) v.findViewById(R.id.report_image);
+            vLayout = (RelativeLayout) v.findViewById(R.id.report_layout);
+            vReportImage = (ImageButton) v.findViewById(R.id.report_image);
         }
     }
 }
