@@ -1,3 +1,5 @@
+package com.ghla.library.authority;
+
 import java.util.ArrayList;
 
 public class DummyDataGenerator {

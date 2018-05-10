@@ -1,81 +1,55 @@
 package com.ghla.library.authority;
 
-import android.support.annotation.NonNull;
+import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ReportsCardViewAdapter extends RecyclerView.Adapter<ReportsCardViewAdapter.CardViewHolder>  {
 
-        private List<ContactInfo> contactList;
+        private List<Report> m_reports;
+        private Context context;
 
         public ReportsCardViewAdapter() {
-                List result = new ArrayList();
-                for (int i=1; i <= 30; i++) {
-                    ReportsCardViewAdapter.ContactInfo ci = new ReportsCardViewAdapter.ContactInfo();
-                    ci.name = ReportsCardViewAdapter.ContactInfo.NAME_PREFIX + i;
-                    ci.surname = ReportsCardViewAdapter.ContactInfo.SURNAME_PREFIX + i;
-                    ci.email = ReportsCardViewAdapter.ContactInfo.EMAIL_PREFIX + i + "@test.com";
-
-                    result.add(ci);
-
-                }
-                this.contactList = result;
-        }
-
-        public ReportsCardViewAdapter(List<ContactInfo> contactList) {
-            this.contactList = contactList;
+            DummyDataGenerator dummyDataGenerator = new DummyDataGenerator();
+            this.m_reports = dummyDataGenerator.getReports();
         }
 
         @Override
         public int getItemCount() {
-            return contactList.size();
+            return m_reports.size();
         }
 
     @Override
         public void onBindViewHolder(final ReportsCardViewAdapter.CardViewHolder CardViewHolder, int i) {
-            ContactInfo ci = contactList.get(i);
-            CardViewHolder.vName.setText(ci.name);
-            CardViewHolder.vSurname.setText(ci.surname);
-            CardViewHolder.vEmail.setText(ci.email);
-            CardViewHolder.vTitle.setText(ci.name + " " + ci.surname);
+            Report report = this.m_reports.get(i);
+            CardViewHolder.vTitle.setText(report.getTitle());
+            CardViewHolder.vConstraintLayout.setBackgroundColor(report.getColor(context));
         }
 
         @Override
         public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+            this.context = viewGroup.getContext();
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
-                    inflate(R.layout.report_card_view, viewGroup, false);
+                    inflate(R.layout.report_card_view2, viewGroup, false);
 
             return new CardViewHolder(itemView);
         }
 
     public class CardViewHolder extends RecyclerView.ViewHolder {
-        protected TextView vName;
-        protected TextView vSurname;
-        protected TextView vEmail;
         protected TextView vTitle;
+        protected ConstraintLayout vConstraintLayout;
 
         public CardViewHolder(View v) {
             super(v);
-            vName =  (TextView) v.findViewById(R.id.txtName);
-            vSurname = (TextView)  v.findViewById(R.id.txtSurname);
-            vEmail = (TextView)  v.findViewById(R.id.txtEmail);
-            vTitle = (TextView) v.findViewById(R.id.title);
+            vTitle = (TextView) v.findViewById(R.id.report_title);
+            vConstraintLayout = (ConstraintLayout) v.findViewById(R.id.report_layout);
         }
-    }
-
-    public class ContactInfo {
-        protected String name;
-        protected String surname;
-        protected String email;
-        protected static final String NAME_PREFIX = "Name_";
-        protected static final String SURNAME_PREFIX = "Surname_";
-        protected static final String EMAIL_PREFIX = "email_";
     }
 }

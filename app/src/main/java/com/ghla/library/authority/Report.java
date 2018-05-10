@@ -1,13 +1,30 @@
+package com.ghla.library.authority;
+
+import android.content.Context;
+import android.content.res.Resources;
+import android.support.v4.content.ContextCompat;
+
 import java.util.ArrayList;
 
 public class Report {
     Metric mMetric;
     Status mStatus;
 
+    // Public methods
+    public String getTitle(){
+        return mMetric.type.toString();
+    }
+    public int getColor(Context context) {
+        return ContextCompat.getColor(context, R.color.colorCardYellow);
+//        return Resources.getSystem().getColor(R.color.colorCardYellow);
+    }
+
     Report(Metric mMetric, Status status) {
         this.mMetric = mMetric;
         this.mStatus = status;
     }
+
+    // Private methods
 
 }
 
