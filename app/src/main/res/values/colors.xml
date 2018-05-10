@@ -13,6 +13,8 @@
     <color name="colorTextMetric">#4a4a4a</color>
     <color name="colorTextGreen">#006b3f</color>
 
+    <color name="colorIconTint">#9b9b9b</color>
+
     <color name="colorCardYellow">#ffd05b</color>
     <color name="colorCardGreen">#90dfaa</color>
     <color name="colorCardPink">#ebb2b2</color>
