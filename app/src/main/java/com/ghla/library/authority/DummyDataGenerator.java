@@ -9,11 +9,22 @@ public class DummyDataGenerator {
     ArrayList<Report> getReports(){
         ArrayList<Report> reports = new ArrayList<>();
         for (int i = 0; i < COUNT_REPORT; i++ ) {
+
+            //Daily
+            reports.add(new ReportHeader(ReportHeader.Header.Daily));
             reports.add(generateMemberShipReport());
+            reports.add(generateResourcesDailyReport());
+
+            //Weekly
+            reports.add(new ReportHeader(ReportHeader.Header.Weekly));
             reports.add(generateMonitoringReport());
-            reports.add(generateFinanceMonthlyReport()); reports.add(generateFinanceWeeklyReport());
-            reports.add(generateResourcesDailyReport()); reports.add(generateResourcesMonthlyReport());
+            reports.add(generateFinanceWeeklyReport());
             reports.add(generateExtensionReport());
+
+            //Monthly
+            reports.add(new ReportHeader(ReportHeader.Header.Monthly));
+            reports.add(generateResourcesMonthlyReport());
+            reports.add(generateFinanceMonthlyReport());
         }
         return reports;
     }

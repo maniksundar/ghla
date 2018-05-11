@@ -21,5 +21,6 @@
     <color name="colorCardPink">#ebb2b2</color>
     <color name="colorCardOrange">#faceab</color>
     <color name="colorCardCyan">#5eddda</color>
+    <color name="colorCardHeaderBorder">#979797</color>
 
 </resources>

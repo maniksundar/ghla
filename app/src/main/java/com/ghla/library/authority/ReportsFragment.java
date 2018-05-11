@@ -16,6 +16,8 @@ import com.ghla.library.authority.dummy.DummyContent.DummyItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ghla.library.authority.ReportType.TYPE_HEADER;
+
 /**
  * A fragment representing a list of Items.
  * <p/>
@@ -65,17 +67,24 @@ public class ReportsFragment extends Fragment {
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-//            recyclerView.setAdapter(new MyReportsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
-            recyclerView.setAdapter(new ReportsCardViewAdapter());
+            GridLayoutManager glm = new GridLayoutManager(context, mColumnCount);
+            final ReportsCardViewAdapter reportsCardViewAdapter = new ReportsCardViewAdapter();
+            glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
+                @Override
+                public int getSpanSize(int position) {
+                    switch(reportsCardViewAdapter.getItemViewType(position)) {
+                        case TYPE_HEADER:
+                            return 2;
+                        default:
+                            return 1;
+                    }
+                }
+            });
+            recyclerView.setLayoutManager(glm);
+            recyclerView.setAdapter(reportsCardViewAdapter);
         }
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {

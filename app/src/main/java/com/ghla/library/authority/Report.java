@@ -5,9 +5,13 @@ import android.support.v4.content.ContextCompat;
 
 import java.util.ArrayList;
 
-public class Report {
+public class Report implements ReportType{
     Metric mMetric;
     Status mStatus;
+    Metric.MetricType mType;
+
+    //Default constructor for the subclasses
+    Report(){}
 
     // Public methods
     public String getTitle(){
@@ -60,13 +64,50 @@ public class Report {
         }
     }
 
+    public int getType(){
+        return TYPE_REPORT;
+    }
+
     Report(Metric mMetric, Status status) {
         this.mMetric = mMetric;
         this.mStatus = status;
+        this.mType = mMetric.type;
     }
 
     // Private methods
 
+}
+
+class ReportHeader extends Report implements ReportType {
+
+    Header mValue;
+
+    enum Header {
+        Daily, Weekly, Monthly
+    }
+
+    ReportHeader(Header header){
+        this.mValue = header;
+    }
+
+    @Override
+    public int getType() {
+        return TYPE_HEADER;
+    }
+
+    @Override
+    public String toString() {
+        switch (mValue) {
+            case Daily:
+                return "due today";
+            case Weekly:
+                return "due this week";
+            case Monthly:
+                return "due this month";
+            default:
+                return "due soon";
+        }
+    }
 }
 
 class Metric{
@@ -75,7 +116,7 @@ class Metric{
     int color;
 
     enum MetricType{
-        Membership, ResourcesDaily, ResourcesMonthly, Extension, FinanceMonthly, FinanceWeekly, Monitoring, Meetings
+        Membership, ResourcesDaily, ResourcesMonthly, Extension, FinanceMonthly, FinanceWeekly, Monitoring, Meetings, Header
     }
 
     Metric (MetricType type, ArrayList<Question> questions) {
