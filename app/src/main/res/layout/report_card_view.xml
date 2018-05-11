@@ -18,8 +18,6 @@
         android:layout_height="160dp"
         android:background="@color/colorCardYellow"
         android:paddingBottom="4dp"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
         android:paddingTop="4dp">
 
         <TextView
@@ -28,6 +26,7 @@
             android:layout_height="wrap_content"
             android:gravity="bottom|center_horizontal"
             android:padding="16dp"
+            android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

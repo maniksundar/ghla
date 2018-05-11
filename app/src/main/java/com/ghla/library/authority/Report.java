@@ -15,7 +15,7 @@ public class Report implements ReportType{
 
     // Public methods
     public String getTitle(){
-        return mMetric.type.toString();
+        return mMetric.getMetricTypeString();
     }
 
     public int getColor(Context context) {
@@ -113,10 +113,44 @@ class ReportHeader extends Report implements ReportType {
 class Metric{
     MetricType type;
     ArrayList<Question> questions;
+    public static final String RESOURCESMONTHLY = "Monthly Resources";
+    public static final String RESOURCESDAILY = "Daily Resources";
+    public static final String FINANCEMONTHLY = "Monthly Finance";
+    public static final String FINANCEWEEKLY = "Weekly Finance";
+    public static final String MONITORING = "Monitoring";
+    public static final String MEMBERSHIP = "Membership";
+    public static final String EXTENSION = "Extension";
+    public static final String MEETINGS = "Meetings";
+    public static final String HEADER = "Header";
+
     int color;
 
     enum MetricType{
         Membership, ResourcesDaily, ResourcesMonthly, Extension, FinanceMonthly, FinanceWeekly, Monitoring, Meetings, Header
+    }
+
+    public String getMetricTypeString(){
+
+        switch (type){
+            case ResourcesMonthly:
+                return RESOURCESMONTHLY;
+            case ResourcesDaily:
+                return RESOURCESDAILY;
+            case FinanceMonthly:
+                return FINANCEMONTHLY;
+            case FinanceWeekly:
+                return FINANCEWEEKLY;
+            case Monitoring:
+                return MONITORING;
+            case Membership:
+                return MEMBERSHIP;
+            case Extension:
+                return EXTENSION;
+            case Meetings:
+                return MEETINGS;
+            default:
+                return HEADER;
+        }
     }
 
     Metric (MetricType type, ArrayList<Question> questions) {
