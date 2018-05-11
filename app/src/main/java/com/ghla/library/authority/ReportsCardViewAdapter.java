@@ -51,7 +51,7 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
             case ReportType.TYPE_REPORT: {
                 View itemView = LayoutInflater.
                         from(viewGroup.getContext()).
-                        inflate(R.layout.report_card_view2, viewGroup, false);
+                        inflate(R.layout.report_card_view, viewGroup, false);
 
                 return new CardViewHolder(itemView);
             }
