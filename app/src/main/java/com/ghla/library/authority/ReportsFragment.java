@@ -4,17 +4,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.ghla.library.authority.dummy.DummyContent;
-import com.ghla.library.authority.dummy.DummyContent.DummyItem;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.ghla.library.authority.ReportType.TYPE_HEADER;
 
@@ -115,6 +108,6 @@ public class ReportsFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+
     }
 }

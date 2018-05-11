@@ -8,9 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
-
-import com.ghla.library.authority.dummy.DummyContent;
 
 public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener {
 
@@ -52,10 +49,6 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
         m_profileFragment = new ProfileFragment();
     }
 
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-
-    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
