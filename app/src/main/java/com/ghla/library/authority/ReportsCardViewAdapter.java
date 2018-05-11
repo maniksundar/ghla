@@ -1,6 +1,7 @@
 package com.ghla.library.authority;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -105,13 +106,13 @@ class HeaderViewHolder extends ViewHolder{
 
 class CardViewHolder extends ViewHolder {
     protected TextView vTitle;
-    protected RelativeLayout vLayout;
+    protected ConstraintLayout vLayout;
     protected ImageButton vReportImage;
 
     public CardViewHolder(View v) {
         super(v);
         vTitle = (TextView) v.findViewById(R.id.report_title);
-        vLayout = (RelativeLayout) v.findViewById(R.id.report_layout);
+        vLayout = (ConstraintLayout) v.findViewById(R.id.report_layout);
         vReportImage = (ImageButton) v.findViewById(R.id.report_image);
     }
 }
