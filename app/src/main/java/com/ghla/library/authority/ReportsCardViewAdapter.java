@@ -69,7 +69,7 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
             case ReportHeader.TYPE_HEADER: {
                 ReportHeader header = (ReportHeader) m_reports.get(position);
                 HeaderViewHolder holder = (HeaderViewHolder) viewHolder;
-                holder.vTitle.setText(header.mValue.toString());
+                holder.vTitle.setText(header.toString());
                 break;
             }
             case ReportType.TYPE_REPORT: {
