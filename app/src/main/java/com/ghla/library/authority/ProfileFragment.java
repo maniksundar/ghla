@@ -66,19 +66,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        View emailView = getView().findViewById(R.id.card_email);
-        setTitleAndSubTitle(emailView, "Change email address", "Choose a different e-mail address for your account.");
-        View phoneView = getView().findViewById(R.id.card_phone);
-        setTitleAndSubTitle(phoneView, "Phone number", "Add a phone number on your account");
-        View passwordView = getView().findViewById(R.id.card_password);
-        setTitleAndSubTitle(passwordView, "Change password", "Choose a unique password to protected your account");
-    }
-
-    private void setTitleAndSubTitle(View view, String title, String subtitle) {
-        TextView titleView = view.findViewById(R.id.title);
-        TextView subtitleView = view.findViewById(R.id.subtitle);
-        titleView.setText(title);
-        subtitleView.setText(subtitle);
+        setupMainViews();
     }
 
     @Override
@@ -125,5 +113,23 @@ public class ProfileFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    // Rest of the non-default functions.
+
+    private void setupMainViews() {
+        View emailView = getView().findViewById(R.id.card_email);
+        setTitleAndSubTitle(emailView, "Change email address", "Choose a different e-mail address for your account.");
+        View phoneView = getView().findViewById(R.id.card_phone);
+        setTitleAndSubTitle(phoneView, "Phone number", "Add a phone number on your account");
+        View passwordView = getView().findViewById(R.id.card_password);
+        setTitleAndSubTitle(passwordView, "Change password", "Choose a unique password to protected your account");
+    }
+
+    private void setTitleAndSubTitle(View view, String title, String subtitle) {
+        TextView titleView = view.findViewById(R.id.title);
+        TextView subtitleView = view.findViewById(R.id.subtitle);
+        titleView.setText(title);
+        subtitleView.setText(subtitle);
     }
 }
