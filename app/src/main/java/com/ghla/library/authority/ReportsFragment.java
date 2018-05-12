@@ -19,9 +19,7 @@ import static com.ghla.library.authority.ReportType.TYPE_HEADER;
  */
 public class ReportsFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
     private int mColumnCount = 2;
     private OnListFragmentInteractionListener mListener;
 

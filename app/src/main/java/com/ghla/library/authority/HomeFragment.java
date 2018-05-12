@@ -4,10 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,7 +21,10 @@ import android.view.ViewGroup;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
+    private static final String ARG_COLUMN_COUNT = "column-count";
+    private int mColumnCount = 2;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,7 +71,17 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        // Set the adapter
+        if (view instanceof RecyclerView) {
+            Context context = view.getContext();
+            RecyclerView recyclerView = (RecyclerView) view;
+            GridLayoutManager glm = new GridLayoutManager(context, mColumnCount);
+            final CardViewAdapter cardViewAdapter = new CardViewAdapter(getHomeCards());
+            recyclerView.setLayoutManager(glm);
+            recyclerView.setAdapter(cardViewAdapter);
+        }
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -89,6 +106,14 @@ public class HomeFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    List<Card> getHomeCards(){
+        ArrayList<Card> cards = new ArrayList<>();
+        for (int i = 0; i < 8; i++){
+             cards.add(new Card("Pay Bill", R.drawable.ic_finance_weekly, R.color.colorAccent)) ;
+        }
+        return cards;
     }
 
     /**
