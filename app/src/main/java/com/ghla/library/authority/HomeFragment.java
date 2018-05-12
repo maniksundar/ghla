@@ -111,7 +111,7 @@ public class HomeFragment extends Fragment{
     List<Card> getHomeCards(){
         ArrayList<Card> cards = new ArrayList<>();
         for (int i = 0; i < 8; i++){
-             cards.add(new Card("Pay Bill", R.drawable.ic_finance_weekly, R.color.colorAccent)) ;
+             cards.add(new Card("Pay Bill", R.drawable.ic_finance_weekly, R.color.colorWhite)) ;
         }
         return cards;
     }
