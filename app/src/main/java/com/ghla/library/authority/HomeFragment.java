@@ -110,9 +110,14 @@ public class HomeFragment extends Fragment{
 
     List<Card> getHomeCards(){
         ArrayList<Card> cards = new ArrayList<>();
-        for (int i = 0; i < 8; i++){
-             cards.add(new Card("Pay Bill", R.drawable.ic_finance_weekly, R.color.colorWhite)) ;
-        }
+        int color = getResources().getColor(R.color.colorWhite);
+        cards.add(new Card("Task Master", R.drawable.ic_clipboard, color)) ;
+        cards.add(new Card("Library Management", R.drawable.ic_library_building, color)) ;
+        cards.add(new Card("Notifications", R.drawable.ic_bell, color)) ;
+        cards.add(new Card("Process Docs", R.drawable.ic_notepad, color)) ;
+        cards.add(new Card("Request Support", R.drawable.ic_headphone, color)) ;
+        cards.add(new Card("My Library", R.drawable.ic_bookshelf_icon, color)) ;
+        cards.add(new Card("History", R.drawable.ic_history, color)) ;
         return cards;
     }
 
