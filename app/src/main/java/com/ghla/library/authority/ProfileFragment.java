@@ -3,10 +3,13 @@ package com.ghla.library.authority;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -58,6 +61,24 @@ public class ProfileFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        View emailView = getView().findViewById(R.id.card_email);
+        setTitleAndSubTitle(emailView, "Change email address", "Choose a different e-mail address for your account.");
+        View phoneView = getView().findViewById(R.id.card_phone);
+        setTitleAndSubTitle(phoneView, "Phone number", "Add a phone number on your account");
+        View passwordView = getView().findViewById(R.id.card_password);
+        setTitleAndSubTitle(passwordView, "Change password", "Choose a unique password to protected your account");
+    }
+
+    private void setTitleAndSubTitle(View view, String title, String subtitle) {
+        TextView titleView = view.findViewById(R.id.title);
+        TextView subtitleView = view.findViewById(R.id.subtitle);
+        titleView.setText(title);
+        subtitleView.setText(subtitle);
     }
 
     @Override
