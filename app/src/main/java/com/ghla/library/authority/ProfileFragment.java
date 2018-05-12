@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,6 +122,7 @@ public class ProfileFragment extends Fragment {
     private void setupMainViews() {
         View emailView = getView().findViewById(R.id.card_email);
         setTitleAndSubTitle(emailView, "Change email address", "Choose a different e-mail address for your account.");
+        emailView.setOnClickListener(emailListener);
         View phoneView = getView().findViewById(R.id.card_phone);
         setTitleAndSubTitle(phoneView, "Phone number", "Add a phone number on your account");
         View passwordView = getView().findViewById(R.id.card_password);
@@ -131,5 +134,32 @@ public class ProfileFragment extends Fragment {
         TextView subtitleView = view.findViewById(R.id.subtitle);
         titleView.setText(title);
         subtitleView.setText(subtitle);
+    }
+
+    View.OnClickListener emailListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+                  EmailFragment emailFragment = new EmailFragment();
+                  switchToFragment(emailFragment);
+        }
+    };
+    View.OnClickListener phoneListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
+    View.OnClickListener passwordListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
+    public void switchToFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(this.getId(),fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
