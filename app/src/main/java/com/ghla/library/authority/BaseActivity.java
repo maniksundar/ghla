@@ -52,6 +52,8 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle(R.string.app_title);
+
+        switchToFragment(m_homeFragment);
     }
 
 
