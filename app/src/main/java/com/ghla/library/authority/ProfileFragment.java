@@ -32,6 +32,10 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private EmailFragment m_emailFragment;
+    private EditPasswordFragment m_editPasswordFragment;
+    private  EditPhoneFragment m_editPhoneFragment;
+
     private OnFragmentInteractionListener mListener;
 
     public ProfileFragment() {
@@ -141,22 +145,22 @@ public class ProfileFragment extends Fragment {
     View.OnClickListener emailListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-                  EmailFragment emailFragment = new EmailFragment();
-                  switchToFragment(emailFragment);
+                  m_emailFragment = m_emailFragment == null ? new EmailFragment() : m_emailFragment;
+                  switchToFragment(m_emailFragment);
         }
     };
     View.OnClickListener phoneListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-            EditPhoneFragment editPhoneFragment = new EditPhoneFragment();
-            switchToFragment(editPhoneFragment);
+            m_editPhoneFragment = m_editPhoneFragment == null ? new EditPhoneFragment() : m_editPhoneFragment;
+            switchToFragment(m_editPhoneFragment);
         }
     };
     View.OnClickListener passwordListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-            EditPasswordFragment editPasswordFragment = new EditPasswordFragment();
-            switchToFragment(editPasswordFragment);
+            m_editPasswordFragment = m_editPasswordFragment == null ? new EditPasswordFragment() : m_editPasswordFragment;
+            switchToFragment(m_editPasswordFragment);
         }
     };
     public void switchToFragment(Fragment fragment) {
