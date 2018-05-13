@@ -125,8 +125,10 @@ public class ProfileFragment extends Fragment {
         emailView.setOnClickListener(emailListener);
         View phoneView = getView().findViewById(R.id.card_phone);
         setTitleAndSubTitle(phoneView, "Phone number", "Add a phone number on your account");
+        phoneView.setOnClickListener(phoneListener);
         View passwordView = getView().findViewById(R.id.card_password);
         setTitleAndSubTitle(passwordView, "Change password", "Choose a unique password to protected your account");
+        passwordView.setOnClickListener(passwordListener);
     }
 
     private void setTitleAndSubTitle(View view, String title, String subtitle) {
@@ -146,13 +148,15 @@ public class ProfileFragment extends Fragment {
     View.OnClickListener phoneListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-
+            EditPhoneFragment editPhoneFragment = new EditPhoneFragment();
+            switchToFragment(editPhoneFragment);
         }
     };
     View.OnClickListener passwordListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-
+            EditPasswordFragment editPasswordFragment = new EditPasswordFragment();
+            switchToFragment(editPasswordFragment);
         }
     };
     public void switchToFragment(Fragment fragment) {
