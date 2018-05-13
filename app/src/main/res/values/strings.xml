@@ -22,8 +22,6 @@
     <string name="title_report">Reports</string>
     <string name="title_profile">Profile</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="TASK_MASTER">Task Master</string>
     <string name="LIBRARY_MANAGEMENT">Library Management</string>
     <string name="NOTIFICATIONS">Notifications</string>
@@ -31,5 +29,20 @@
     <string name="REQUEST_SUPPORT">Request Support</string>
     <string name="MY_LIBRARY">My Library</string>
     <string name="HISTORY">History</string>
+
+    <!--My Profile page-->
+    <string name="TYPE_CURRENT_PASSWORD">Type your current password</string>
+    <string name="TYPE_NEW_PASSWORD">Type your new password</string>
+    <string name="RETYPE_NEW_PASSWORD">Retype your new password</string>
+    <string name="CREATE_NEW_PASSWORD">Create a new password</string>
+    <string name="CHOOSE_UNIQUE_PASSWORD">Choose a unique password to protect your account</string>
+    <string name="FORGOT_PASSWORD">Forgot your password?</string>
+
+    <string name="PRIMARY_EMAIL">Primary Email</string>
+    <string name="CHANGE_EMAIL_ADDRESS">Change email address</string>
+    <string name="CHOOSE_DIFFERENT_EMAIL">Choose a different e-mail address for your account</string>
+
+    <string name="ADD_PHONE_NUMBER">Add a phone number</string>
+    <string name="ADD_PHONE_NUMBER_TO_ACCOUNT">Add a phone number to your account</string>
 
 </resources>
