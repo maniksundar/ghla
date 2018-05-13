@@ -77,7 +77,8 @@ public class HomeFragment extends Fragment{
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             GridLayoutManager glm = new GridLayoutManager(context, mColumnCount);
-            final CardViewAdapter cardViewAdapter = new CardViewAdapter(getHomeCards());
+            //TODO: Find out if 160 works across all devices.
+            final CardViewAdapter cardViewAdapter = new CardViewAdapter(getHomeCards(), 160);
             recyclerView.setLayoutManager(glm);
             recyclerView.setAdapter(cardViewAdapter);
         }

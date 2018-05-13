@@ -11,11 +11,15 @@ import java.util.List;
 public class CardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Card> m_cards;
-    private Context context;
+    private int m_imageSize;
 
     public CardViewAdapter(List<Card> cards) {
-        DummyDataGenerator dummyDataGenerator = new DummyDataGenerator();
         this.m_cards = cards;
+    }
+
+    public CardViewAdapter(List<Card> cards, int size){
+        this.m_cards = cards;
+        m_imageSize = size;
     }
 
     @Override
@@ -30,14 +34,20 @@ public class CardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         cardViewHolder.vTitle.setText(card.getTitle());
         cardViewHolder.vLayout.setBackgroundColor(card.getColor());
         cardViewHolder.vReportImage.setImageResource(card.getImage());
+        setViewHolderProperties(cardViewHolder);
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        this.context = viewGroup.getContext();
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.report_card_view, viewGroup, false);
         return new CardViewHolder(itemView);
+    }
+
+    // Other methods
+    void setViewHolderProperties (CardViewHolder cardViewHolder){
+        cardViewHolder.vReportImage.getLayoutParams().width = m_imageSize;
+        cardViewHolder.vReportImage.getLayoutParams().height = m_imageSize;
     }
 }
