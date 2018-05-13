@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment{
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
 
-    // TODO: Rename parameter arguments, choose names that match
+    // TODO: Rename parameter arguments, choose names that match¡¡™
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -111,13 +111,13 @@ public class HomeFragment extends Fragment{
     List<Card> getHomeCards(){
         ArrayList<Card> cards = new ArrayList<>();
         int color = getResources().getColor(R.color.colorWhite);
-        cards.add(new Card("Task Master", R.drawable.ic_clipboard, color)) ;
-        cards.add(new Card("Library Management", R.drawable.ic_library_building, color)) ;
-        cards.add(new Card("Notifications", R.drawable.ic_bell, color)) ;
-        cards.add(new Card("Process Docs", R.drawable.ic_notepad, color)) ;
-        cards.add(new Card("Request Support", R.drawable.ic_headphone, color)) ;
-        cards.add(new Card("My Library", R.drawable.ic_bookshelf_icon, color)) ;
-        cards.add(new Card("History", R.drawable.ic_history, color)) ;
+        cards.add(new Card(getString(R.string.TASK_MASTER), R.drawable.ic_clipboard, color)) ;
+        cards.add(new Card(getString(R.string.LIBRARY_MANAGEMENT), R.drawable.ic_library_building, color)) ;
+        cards.add(new Card(getString(R.string.NOTIFICATIONS), R.drawable.ic_bell, color)) ;
+        cards.add(new Card(getString(R.string.PROCESS_DOCS), R.drawable.ic_notepad, color)) ;
+        cards.add(new Card(getString(R.string.REQUEST_SUPPORT), R.drawable.ic_headphone, color)) ;
+        cards.add(new Card(getString(R.string.MY_LIBRARY), R.drawable.ic_bookshelf_icon, color)) ;
+        cards.add(new Card(getString(R.string.HISTORY), R.drawable.ic_history, color)) ;
         return cards;
     }
 

@@ -24,5 +24,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="TASK_MASTER">Task Master</string>
+    <string name="LIBRARY_MANAGEMENT">Library Management</string>
+    <string name="NOTIFICATIONS">Notifications</string>
+    <string name="PROCESS_DOCS">Process Docs</string>
+    <string name="REQUEST_SUPPORT">Request Support</string>
+    <string name="MY_LIBRARY">My Library</string>
+    <string name="HISTORY">History</string>
 
 </resources>
