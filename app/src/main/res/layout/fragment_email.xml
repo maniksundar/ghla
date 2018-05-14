@@ -6,89 +6,119 @@
     android:layout_height="match_parent"
     android:layout_marginStart="@dimen/card_margin"
     android:layout_marginEnd="@dimen/card_margin"
+    android:layout_marginTop="@dimen/card_margin"
+    android:layout_marginBottom="@dimen/card_margin"
     tools:context=".EmailFragment">
 
-    <TextView
-        android:id="@+id/primary_email"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:padding="@dimen/padding_avg"
-        android:text="Primary email"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/current_email_value"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/CardView.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:contentPaddingTop="8dp"
+        app:contentPaddingBottom="16dp"
+        android:minHeight="200dp"
+        app:cardCornerRadius="10dp">
 
-    <TextView
-        android:id="@+id/current_email_value"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="@dimen/padding_avg"
-        android:layout_marginStart="@dimen/padding_avg"
-        android:layout_marginTop="@dimen/padding_avg"
-        android:padding="@dimen/padding_avg"
-        android:text="samuel@ghla.com"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/primary_email"
-        tools:text="@string/error_invalid_email" />
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/card_margin"
+            android:layout_marginEnd="@dimen/card_margin"
+            tools:context=".EmailFragment">
 
-    <TextView
-        android:id="@+id/change_email"
-        android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="@dimen/padding_avg"
-        android:layout_marginEnd="@dimen/padding_avg"
-        android:layout_marginStart="@dimen/padding_avg"
-        android:layout_marginTop="16dp"
-        android:padding="@dimen/padding_avg"
-        android:text="Change your email address"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/change_email_value"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_email_value" />
 
-    <EditText
-        android:id="@+id/change_email_value"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="48dp"
-        android:layout_marginEnd="@dimen/padding_avg"
-        android:layout_marginStart="@dimen/padding_avg"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="samuel@ghla.com"
-        android:inputType="textPersonName"
-        android:padding="@dimen/padding_avg"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/email_change_submit_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_email" />
+        <TextView
+            android:id="@+id/primary_email"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="@dimen/padding_avg"
+            android:text="Primary email"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/current_email_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/email_change_submit_button"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="@dimen/padding_avg"
-        android:layout_marginStart="@dimen/padding_avg"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_green"
-        android:padding="@dimen/padding_avg"
-        android:text="Submit"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_email_value" />
+        <TextView
+            android:id="@+id/current_email_value"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="@dimen/padding_avg"
+            android:layout_marginStart="@dimen/padding_avg"
+            android:layout_marginTop="@dimen/padding_avg"
+            android:padding="@dimen/padding_avg"
+            android:text="samuel@ghla.com"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/primary_email"
+            tools:text="@string/error_invalid_email" />
+
+        <TextView
+            android:id="@+id/change_email"
+            android:layout_width="0dp"
+            android:layout_height="49dp"
+            android:layout_marginBottom="@dimen/padding_avg"
+            android:layout_marginEnd="@dimen/padding_avg"
+            android:layout_marginStart="@dimen/padding_avg"
+            android:layout_marginTop="16dp"
+            android:padding="@dimen/padding_avg"
+            android:text="Change your email address"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/change_email_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_email_value" />
+
+        <EditText
+            android:id="@+id/change_email_value"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginBottom="48dp"
+            android:layout_marginEnd="@dimen/padding_avg"
+            android:layout_marginStart="@dimen/padding_avg"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="samuel@ghla.com"
+            android:inputType="textPersonName"
+            android:padding="@dimen/padding_avg"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/email_change_submit_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/change_email" />
+
+        <Button
+            android:id="@+id/email_change_submit_button"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="@dimen/padding_avg"
+            android:layout_marginStart="@dimen/padding_avg"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_green"
+            android:padding="@dimen/padding_avg"
+            android:text="Submit"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/change_email_value" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
 
 
 </android.support.constraint.ConstraintLayout>
