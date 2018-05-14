@@ -94,6 +94,7 @@
                 android:inputType="textPersonName"
                 android:padding="@dimen/padding_avg"
                 android:textAlignment="center"
+                android:background="@drawable/textview_gray_sharp_edge"
                 app:layout_constraintBottom_toTopOf="@+id/email_change_submit_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
