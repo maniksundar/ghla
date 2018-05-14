@@ -47,7 +47,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     // Other methods
     void setViewHolderProperties (CardViewHolder cardViewHolder){
-        cardViewHolder.vReportImage.getLayoutParams().width = m_imageSize;
+        // Setting both the height and width makes some icons smaller and other bigger.
         cardViewHolder.vReportImage.getLayoutParams().height = m_imageSize;
     }
 }
