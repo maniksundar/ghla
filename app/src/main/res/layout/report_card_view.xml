@@ -20,6 +20,21 @@
         android:paddingBottom="4dp"
         android:paddingTop="4dp">
 
+        <ImageButton
+            android:id="@+id/report_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="false"
+            android:background="#0000"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/report_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/membership" />
+
         <TextView
             android:id="@+id/report_title"
             android:layout_width="match_parent"
@@ -31,23 +46,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/report_image"
             tools:text="Event" />
-
-        <ImageButton
-            android:id="@+id/report_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="16dp"
-            android:adjustViewBounds="false"
-            android:background="#0000"
-            android:cropToPadding="false"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/report_title"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/membership" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
