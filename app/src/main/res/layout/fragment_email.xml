@@ -34,21 +34,21 @@
             tools:context=".EmailFragment">
 
 
-        <TextView
-            android:id="@+id/primary_email"
-            android:layout_width="0dp"
-            android:layout_height="46dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:padding="@dimen/padding_avg"
-            android:text="Primary email"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/current_email_value"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/primary_email"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/textlines"
+                android:text="Primary email"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/current_email_value"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/current_email_value"
