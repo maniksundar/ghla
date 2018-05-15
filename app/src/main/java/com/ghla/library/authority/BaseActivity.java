@@ -42,16 +42,14 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         m_homeFragment = new HomeFragment();
         m_reportsFragment = new ReportsFragment();
         m_profileFragment = new ProfileFragment();
 
-//        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-//        setSupportActionBar(myToolbar);
-//        getSupportActionBar().setTitle(R.string.app_title);
+        getSupportActionBar().setTitle(User.getCurrentUser().getName());
 
         switchToFragment(m_homeFragment);
     }
@@ -64,6 +62,6 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
 
     public void switchToFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.baseFrame, fragment).commit();
+        manager.beginTransaction().replace(R.id.baseFrame, fragment, fragment.toString()).commit();
     }
 }
