@@ -62,6 +62,6 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
 
     public void switchToFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.baseFrame, fragment, fragment.toString()).commit();
+        manager.beginTransaction().replace(R.id.baseFrame, fragment).commit();
     }
 }
