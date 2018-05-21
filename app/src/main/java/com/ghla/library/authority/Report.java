@@ -170,27 +170,6 @@ class Status{
     }
 }
 
-class Question {
-    String title;
-    String subTitle;
-    String questionText;
-
-    Question(String questionText) {
-        this.questionText = questionText;
-    }
-
-    Question(String title, String subTitle, String questionText) {
-        this.title = title;
-        this.subTitle = subTitle;
-        this.questionText = questionText;
-    }
-    Question(String title, String questionText) {
-        this.title = title;
-        this.questionText = questionText;
-    }
-
-}
-
 class Person{
     String name;
     String phone = "";
@@ -219,3 +198,52 @@ class Region{
     Person regionalManager;
 }
 
+// Every title has an array of subtitles
+class Title{
+    String text;
+    boolean isAnswerable = false;
+    ArrayList<Subtitle> subtitles;
+    Title (String text){
+        this.text = text;
+    }
+    Title (String text, boolean isAnswerable){
+        this.text = text;
+        this.isAnswerable = isAnswerable;
+    }
+    void add(Subtitle subtitle) {
+        if(this.subtitles == null){
+            this.subtitles = new ArrayList<>();
+        }
+        this.subtitles.add(subtitle);
+    }
+}
+class Subtitle{
+    ArrayList<Question> questions;
+    String text;
+    boolean isAnswerable = false;
+    Subtitle(String text) {
+        this.text = text;
+    }
+    Subtitle (String text, boolean isAnswerable){
+        this.text = text;
+        this.isAnswerable = isAnswerable;
+    }
+    void add (Question question){
+        if (this.questions == null){
+            this.questions = new ArrayList<>();
+        }
+        questions.add(question);
+    }
+}
+class Question {
+    String text;
+    boolean isAnswerable = true;
+
+    Question(String questionText) {
+        this.text = questionText;
+    }
+    Question (String text, boolean isAnswerable){
+        this.text = text;
+        this.isAnswerable = isAnswerable;
+    }
+}
