@@ -146,27 +146,27 @@ public class ProfileFragment extends Fragment {
         @Override
         public void onClick(View v) {
                   m_emailFragment = m_emailFragment == null ? new EmailFragment() : m_emailFragment;
-                  switchToFragment(m_emailFragment);
+                  switchToFragment(m_emailFragment,getString(R.string.FRAGMENT_EMAIL));
         }
     };
     View.OnClickListener phoneListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
             m_editPhoneFragment = m_editPhoneFragment == null ? new EditPhoneFragment() : m_editPhoneFragment;
-            switchToFragment(m_editPhoneFragment);
+            switchToFragment(m_editPhoneFragment,getString(R.string.FRAGMENT_PHONE));
         }
     };
     View.OnClickListener passwordListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
             m_editPasswordFragment = m_editPasswordFragment == null ? new EditPasswordFragment() : m_editPasswordFragment;
-            switchToFragment(m_editPasswordFragment);
+            switchToFragment(m_editPasswordFragment,getString(R.string.FRAGMENT_PASSWORD));
         }
     };
-    public void switchToFragment(Fragment fragment) {
+    public void switchToFragment(Fragment fragment, String tag) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(this.getId(),fragment);
+        fragmentTransaction.replace(this.getId(),fragment, tag);
         fragmentTransaction.commit();
     }
 }

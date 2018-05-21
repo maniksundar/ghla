@@ -44,5 +44,8 @@
 
     <string name="ADD_PHONE_NUMBER">Add a phone number</string>
     <string name="ADD_PHONE_NUMBER_TO_ACCOUNT">Add a phone number to your account</string>
+    <string name="FRAGMENT_PASSWORD">password</string>
+    <string name="FRAGMENT_PHONE">phone</string>
+    <string name="FRAGMENT_EMAIL">email</string>
 
 </resources>
