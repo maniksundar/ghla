@@ -23,4 +23,17 @@
     <color name="colorCardCyan">#5eddda</color>
     <color name="colorCardHeaderBorder">#979797</color>
 
+    <color name="colorLibraryYellow">#ffd05b</color>
+    <color name="colorLibraryGreen">#90dfaa</color>
+    <color name="colorLibraryPaleGreen">#c9e791</color>
+    <color name="colorLibraryPink">#eab1b1</color>
+    <color name="colorLibraryOrange">#faceab</color>
+    <color name="colorLibraryCyan">#84e0de</color>
+    <color name="colorLibraryPurple">#84e0de</color>
+    <color name="colorLibraryYellow2">#e9e663</color>
+    <color name="colorLibraryLightRed">#faf0a58f</color>
+    <color name="colorLibraryThanos">#d9c2f1</color>
+
+    b6d1fb
+
 </resources>
