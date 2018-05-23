@@ -1,5 +1,6 @@
 package com.ghla.library.authority;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,11 +52,13 @@ public class MylibraryRecyclerViewAdapter extends RecyclerView.Adapter<Mylibrary
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        protected ConstraintLayout vLayout;
         protected  TextView vName;
         public Library mLibrary;
 
         public ViewHolder(View view) {
             super(view);
+            vLayout = view.findViewById(R.id.library_layout);
             vName = view.findViewById(R.id.library_name);
         }
 

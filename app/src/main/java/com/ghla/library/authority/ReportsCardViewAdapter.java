@@ -116,12 +116,3 @@ class CardViewHolder extends ViewHolder {
         vReportImage = (ImageButton) v.findViewById(R.id.report_image);
     }
 }
-
-class LibraryCardViewHolder extends ViewHolder{
-    protected  TextView vName;
-
-    public LibraryCardViewHolder (View v) {
-        super(v);
-        vName = v.findViewById(R.id.library_name);
-    }
-}
