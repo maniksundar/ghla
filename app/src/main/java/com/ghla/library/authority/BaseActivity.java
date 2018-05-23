@@ -30,7 +30,7 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
                     switchToFragment(m_reportsFragment);
                     return true;
                 case R.id.navigation_profile:
-                    switchToFragment(m_libraryFragment);
+                    switchToFragment(m_profileFragment);
                     return true;
             }
             return false;
