@@ -1,5 +1,6 @@
 package com.ghla.library.authority;
 
+import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,11 +11,13 @@ import android.widget.TextView;
 import com.ghla.library.authority.LibraryFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
+import java.util.Random;
 
 public class MylibraryRecyclerViewAdapter extends RecyclerView.Adapter<MylibraryRecyclerViewAdapter.ViewHolder> {
 
     private final List<Library> mLibraries;
     private final OnListFragmentInteractionListener mListener;
+    private Context mContext;
 
     public MylibraryRecyclerViewAdapter(List<Library> libraries, OnListFragmentInteractionListener listener) {
         mLibraries = libraries;
@@ -23,6 +26,7 @@ public class MylibraryRecyclerViewAdapter extends RecyclerView.Adapter<Mylibrary
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        this.mContext = parent.getContext();
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_library, parent, false);
         return new ViewHolder(view);
@@ -31,7 +35,8 @@ public class MylibraryRecyclerViewAdapter extends RecyclerView.Adapter<Mylibrary
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mLibrary = mLibraries.get(position);
-        Library library = (Library)mLibraries.get(position);
+        Library library = mLibraries.get(position);
+        holder.vLayout.setBackgroundColor(getRandomLibraryColor());
         holder.vName.setText(library.getName());
 
         holder.vName.setOnClickListener(new View.OnClickListener() {
@@ -66,5 +71,11 @@ public class MylibraryRecyclerViewAdapter extends RecyclerView.Adapter<Mylibrary
         public String toString() {
             return super.toString() + " '" + vName.getText() + "'";
         }
+    }
+
+    static int currentLibraryColor = 0;
+    int getRandomLibraryColor(){
+        int[] androidColors = mContext.getResources().getIntArray(R.array.libraryColors);
+        return androidColors[currentLibraryColor++%androidColors.length];
     }
 }

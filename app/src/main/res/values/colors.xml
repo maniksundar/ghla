@@ -23,17 +23,28 @@
     <color name="colorCardCyan">#5eddda</color>
     <color name="colorCardHeaderBorder">#979797</color>
 
-    <color name="colorLibraryYellow">#ffd05b</color>
-    <color name="colorLibraryGreen">#90dfaa</color>
-    <color name="colorLibraryPaleGreen">#c9e791</color>
-    <color name="colorLibraryPink">#eab1b1</color>
-    <color name="colorLibraryOrange">#faceab</color>
-    <color name="colorLibraryCyan">#84e0de</color>
-    <color name="colorLibraryPurple">#84e0de</color>
-    <color name="colorLibraryYellow2">#e9e663</color>
-    <color name="colorLibraryLightRed">#faf0a58f</color>
-    <color name="colorLibraryThanos">#d9c2f1</color>
+    <item name="colorLibraryYellow" type="color">#ffd05b</item>
+    <item name="colorLibraryGreen" type="color">#90dfaa</item>
+    <item name="colorLibraryPink" type="color">#eab1b1</item>
+    <item name="colorLibraryOrange" type="color">#faceab</item>
+    <item name="colorLibraryPaleGreen" type="color">#c9e791</item>
+    <item name="colorLibraryCyan" type="color">#84e0de</item>
+    <item name="colorLibraryPurple" type="color">#b6d1fb</item>
+    <item name="colorLibraryYellow2" type="color">#e9e663</item>
+    <item name="colorLibraryLightRed" type="color">#faf0a58f</item>
+    <item name="colorLibraryThanos" type="color">#d9c2f1</item>
 
-    b6d1fb
+    <integer-array name="libraryColors">
+        <item>@color/colorLibraryYellow</item>
+        <item>@color/colorLibraryGreen</item>
+        <item>@color/colorLibraryPink</item>
+        <item>@color/colorLibraryOrange</item>
+        <item>@color/colorLibraryPaleGreen</item>
+        <item>@color/colorLibraryCyan</item>
+        <item>@color/colorLibraryPurple</item>
+        <item>@color/colorLibraryYellow2</item>
+        <item>@color/colorLibraryLightRed</item>
+        <item>@color/colorLibraryThanos</item>
+    </integer-array>
 
 </resources>
