@@ -22,7 +22,7 @@ import android.widget.TextView;
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements TopMost {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,6 +35,7 @@ public class ProfileFragment extends Fragment {
     private EmailFragment m_emailFragment;
     private EditPasswordFragment m_editPasswordFragment;
     private  EditPhoneFragment m_editPhoneFragment;
+    private Fragment m_topMost = this;
 
     private OnFragmentInteractionListener mListener;
 
@@ -167,6 +168,17 @@ public class ProfileFragment extends Fragment {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(this.getId(),fragment, tag);
+        m_topMost = fragment;
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public Fragment getTopMostFragment() {
+        return m_topMost;
+    }
+
+    @Override
+    public void clearAll() {
+        m_topMost = this;
     }
 }

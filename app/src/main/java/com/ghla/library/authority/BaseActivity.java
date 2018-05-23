@@ -16,6 +16,7 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
     private ReportsFragment m_reportsFragment;
     private ProfileFragment m_profileFragment;
     private LibraryFragment m_libraryFragment;
+    private Fragment m_currentFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -67,7 +68,25 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
     }
 
     public void switchToFragment(Fragment fragment) {
+        fragment = getTheCorrectFragment(fragment);
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.baseFrame, fragment).commit();
     }
+
+    public Fragment getTheCorrectFragment (Fragment fragment){
+        if (fragment != m_currentFragment && fragment instanceof TopMost){
+            m_currentFragment = fragment;
+            return ((TopMost) fragment).getTopMostFragment();
+        } else if (fragment == m_currentFragment && fragment instanceof TopMost){
+            ((TopMost)fragment).clearAll();
+        }
+        m_currentFragment = fragment;
+        return m_currentFragment;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
 }
