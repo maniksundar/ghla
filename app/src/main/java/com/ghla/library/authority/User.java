@@ -1,6 +1,6 @@
 package com.ghla.library.authority;
 
-public class User {
+public class User extends Person{
     private String name;
     private String email;
     private String phone;

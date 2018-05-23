@@ -86,4 +86,12 @@ public class DummyDataGenerator {
         }
         return questions;
     }
+
+    ArrayList<Library> getLibraries(){
+        ArrayList<Library> libraries = new ArrayList<>();
+        for (int i=0; i < 12; i++) {
+            libraries.add(new Library(User.getCurrentUser(), "Keta Library"));
+        }
+        return libraries;
+    }
 }

@@ -175,6 +175,8 @@ class Person{
     String phone = "";
     String email = "";
 
+    Person(){}
+
     Person (String name) {
         this.name = name;
     }
@@ -188,8 +190,16 @@ class Person{
 
 class Library{
     Person manager;
-    Library (Person manager) {
+    String name;
+
+    //Public methods
+    String getName (){
+        return name;
+    }
+
+    Library (Person manager, String name) {
         this.manager = manager;
+        this.name = name;
     }
 }
 

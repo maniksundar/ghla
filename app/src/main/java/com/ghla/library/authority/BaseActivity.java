@@ -7,15 +7,15 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener {
+public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, LibraryFragment.OnListFragmentInteractionListener {
 
 
     private HomeFragment m_homeFragment;
     private ReportsFragment m_reportsFragment;
     private ProfileFragment m_profileFragment;
+    private LibraryFragment m_libraryFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -30,7 +30,7 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
                     switchToFragment(m_reportsFragment);
                     return true;
                 case R.id.navigation_profile:
-                    switchToFragment(m_profileFragment);
+                    switchToFragment(m_libraryFragment);
                     return true;
             }
             return false;
@@ -48,6 +48,7 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
         m_homeFragment = new HomeFragment();
         m_reportsFragment = new ReportsFragment();
         m_profileFragment = new ProfileFragment();
+        m_libraryFragment = new LibraryFragment();
 
         getSupportActionBar().setTitle(User.getCurrentUser().getName());
 
@@ -57,6 +58,11 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(Library library) {
 
     }
 
