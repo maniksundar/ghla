@@ -1,0 +1,52 @@
+{
+  "titles":[
+  {
+    "text": "Total Number of New Library Membership",
+    "subtitles":[
+      {
+        "text": "JUVENILE",
+        "questions":[{"text": ["Male", "Female"]}]
+      },
+      {
+        "text": "ADULT",
+        "questions":[{"text": ["Male", "Female"]}]
+      }]
+  },
+  {
+    "text": "Total Number of Renewed Membership",
+    "subtitles":[
+      {
+        "text": "JUVENILE",
+        "questions":[{"text": ["Male", "Female"]}]
+      },
+      {
+        "text": "ADULT",
+        "questions":[{"text": ["Male", "Female"]}]
+      }]
+  },
+  {
+    "text": "Total Number Library Visits (Patronage)",
+    "subtitles":[
+      {
+        "text": "JUVENILE",
+        "questions":[{"text": ["Male", "Female"]}]
+      },
+      {
+        "text": "ADULT",
+        "questions":[{"text": ["Male", "Female"]}]
+      }]
+  },
+  {
+    "text": "Total Number of Users of Computers (Technology services)",
+    "subtitles":[
+      {
+        "text": "JUVENILE",
+        "questions":[{"text": ["Male", "Female"]}]
+      },
+      {
+        "text": "ADULT",
+        "questions":[{"text": ["Male", "Female"]}]
+      }]
+  }
+  ]
+}
