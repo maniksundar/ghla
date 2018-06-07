@@ -41,6 +41,7 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         this.context = viewGroup.getContext();
+        System.out.println(new Membership());
         switch (viewType) {
             case Report.TYPE_HEADER: {
                 View itemView = LayoutInflater.

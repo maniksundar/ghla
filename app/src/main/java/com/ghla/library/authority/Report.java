@@ -212,6 +212,7 @@ class Region{
 // Every title has an array of subtitles
 class Title{
     String text;
+    int type;
     boolean isAnswerable = false;
     List<Subtitle> subtitles;
     Title (String text){
