@@ -2,21 +2,45 @@ package com.ghla.library.authority;
 
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 
 class Membership {
-    private ArrayList<Title> titles;
-    private ArrayList<Subtitle> subtitles;
-    private ArrayList<Question> questions;
-
-    Membership() throws FileNotFoundException {
-        String path = "membership.json";
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
-
-        Gson gson = new Gson();
-        gson.fromJson(bufferedReader,this.getClass());
+    private static final String MEMBERSHIP_JSON = "membership.json";
+    private List<Title> titles;
+    Membership(){
+        // Membership typically contains type1 titles.
+        loadMembershipJSON();
     }
+
+    void loadMembershipJSON(){
+        try {
+            String json = readJSONFromFile(MEMBERSHIP_JSON);
+            Gson gson = new Gson();
+            Membership membership = gson.fromJson(json,Membership.class);
+            System.out.print(membership);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    String readJSONFromFile (String filename){
+        String json = null;
+        try {
+            InputStream is = App.getContext().getAssets().open(filename);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
+}
+
+class DataModelType1{
+    private List<Title> titles;
 }

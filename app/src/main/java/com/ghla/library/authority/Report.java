@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Report implements ReportType{
     Metric mMetric;
@@ -212,7 +213,7 @@ class Region{
 class Title{
     String text;
     boolean isAnswerable = false;
-    ArrayList<Subtitle> subtitles;
+    List<Subtitle> subtitles;
     Title (String text){
         this.text = text;
     }
@@ -228,7 +229,7 @@ class Title{
     }
 }
 class Subtitle{
-    ArrayList<Question> questions;
+    List<Question> questions;
     String text;
     boolean isAnswerable = false;
     Subtitle(String text) {

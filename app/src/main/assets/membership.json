@@ -1,0 +1,27 @@
+{
+  "titles":[
+    {"type":1,
+      "text": "Total Number of New Library Membership",
+      "subtitles":[
+        {
+          "text": "JUVENILE",
+          "questions":[{"text": "Male"},{"text": "Female"}]
+        },
+        {
+          "text": "ADULT",
+          "questions":[{"text": "Male"},{"text": "Female"}]
+        }]
+    },
+    {"type":1,
+      "text": "Total Number of Renewed Membership",
+      "subtitles":[
+        {
+          "text": "JUVENILE",
+          "questions":[{"text": "Male"},{"text": "Female"}]
+        },
+        {
+          "text": "ADULT",
+          "questions":[{"text": "Male"},{"text": "Female"}]
+        }]
+    }]
+}
