@@ -8,10 +8,9 @@ class JSONHelper {
 
     Object deserializeJSON(String filename, Class c){
         try {
-            Object object = c.newInstance();
             String json = readJSONFromFile(filename);
             Gson gson = new Gson();
-            return gson.fromJson(json,object.getClass());
+            return gson.fromJson(json,c);
         } catch (Exception e) {
             e.printStackTrace();
         }

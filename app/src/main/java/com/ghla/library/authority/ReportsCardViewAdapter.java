@@ -16,6 +16,7 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Report> m_reports;
     private Context context;
+    private static final String MEMBERSHIP_JSON = "membership.json";
 
     public ReportsCardViewAdapter() {
         DummyDataGenerator dummyDataGenerator = new DummyDataGenerator();
@@ -41,7 +42,9 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         this.context = viewGroup.getContext();
-        System.out.println(new Membership());
+        // The following line shouldn't be placed inside membership constructor. It'll cause a stackoverflow.
+        Membership membership = (Membership) new JSONHelper().deserializeJSON(MEMBERSHIP_JSON,Membership.class);
+        System.out.println(membership);
         switch (viewType) {
             case Report.TYPE_HEADER: {
                 View itemView = LayoutInflater.
