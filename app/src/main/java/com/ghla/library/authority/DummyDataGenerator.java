@@ -3,8 +3,9 @@ package com.ghla.library.authority;
 import java.util.ArrayList;
 
 public class DummyDataGenerator {
-    static int COUNT_REPORT = 2;
+    static int COUNT_REPORT = 1;
     static int COUNT_QUESTION = 10;
+    private static final String MEMBERSHIP_JSON = "membership.json";
 
     ArrayList<Report> getReports(){
         ArrayList<Report> reports = new ArrayList<>();
@@ -33,6 +34,10 @@ public class DummyDataGenerator {
         Metric metric =  new Metric(Metric.MetricType.Membership, generateRandomQuestions());
         Status status = new Status(Status.Value.NotStarted);
         Report report = new Report(metric, status);
+        // The following line shouldn't be placed inside membership constructor. It'll cause a stackoverflow.
+        Membership membership = (Membership) new JSONHelper().deserializeJSON(MEMBERSHIP_JSON,Membership.class);
+        System.out.println(membership);
+        report.setTitles(membership.titles);
         return report;
     }
 
