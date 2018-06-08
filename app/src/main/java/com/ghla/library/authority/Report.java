@@ -218,6 +218,7 @@ class Region{
 class Title{
     String text;
     int type;
+    int answer;
     boolean isAnswerable = false;
     List<Subtitle> subtitles;
     Title (String text){
@@ -237,6 +238,7 @@ class Title{
 class Subtitle{
     List<Question> questions;
     String text;
+    int answer;
     boolean isAnswerable = false;
     Subtitle(String text) {
         this.text = text;
@@ -254,8 +256,8 @@ class Subtitle{
 }
 class Question {
     String text;
+    int answer;
     boolean isAnswerable = true;
-
     Question(String questionText) {
         this.text = questionText;
     }
