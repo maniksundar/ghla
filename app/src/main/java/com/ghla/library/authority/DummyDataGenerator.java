@@ -40,7 +40,7 @@ public class DummyDataGenerator {
         report.setTitles(membership.titleList);
         return report;
     }
-
+    
     Report generateMonitoringReport(){
         Metric metric =  new Metric(Metric.MetricType.Monitoring, generateRandomQuestions());
         Status status = new Status(Status.Value.NotStarted);
