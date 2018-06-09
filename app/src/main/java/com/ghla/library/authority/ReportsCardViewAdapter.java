@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -15,11 +14,12 @@ import java.util.List;
 public class ReportsCardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Report> m_reports;
+    private OnItemClickListener m_listener;
     private Context context;
 
-    public ReportsCardViewAdapter() {
-        DummyDataGenerator dummyDataGenerator = new DummyDataGenerator();
-        this.m_reports = dummyDataGenerator.getReports();
+    public ReportsCardViewAdapter(List<Report> reports, OnItemClickListener listener) {
+        this.m_reports = reports;
+        this.m_listener = listener;
     }
 
     @Override
@@ -36,6 +36,7 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int position) {
         setViewByType(viewHolder, position);
+        viewHolder.bind(m_reports.get(position), m_listener);
     }
 
     @Override
@@ -86,11 +87,18 @@ public class ReportsCardViewAdapter extends RecyclerView.Adapter<ViewHolder> {
             }
         }
     }
+
+    public interface OnItemClickListener {
+        void onReportItemClick(Report item);
+    }
 }
 
 class ViewHolder extends RecyclerView.ViewHolder{
     public ViewHolder(View v){
         super(v);
+    }
+    public void bind(final Report report, final ReportsCardViewAdapter.OnItemClickListener listener){
+
     }
 }
 
@@ -102,6 +110,10 @@ class HeaderViewHolder extends ViewHolder{
         vTitle = (TextView) v.findViewById(R.id.header_title);
     }
 
+    @Override
+    public void bind(Report report, ReportsCardViewAdapter.OnItemClickListener listener) {
+
+    }
 }
 
 class CardViewHolder extends ViewHolder {
@@ -114,5 +126,17 @@ class CardViewHolder extends ViewHolder {
         vTitle = (TextView) v.findViewById(R.id.report_title);
         vLayout = (ConstraintLayout) v.findViewById(R.id.report_layout);
         vReportImage = (ImageButton) v.findViewById(R.id.report_image);
+    }
+
+    @Override
+    public void bind(final Report report, final ReportsCardViewAdapter.OnItemClickListener listener) {
+        vLayout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        listener.onReportItemClick(report);
+                    }
+                }
+        );
     }
 }

@@ -17,7 +17,7 @@ import static com.ghla.library.authority.ReportType.TYPE_HEADER;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ReportsFragment extends Fragment {
+public class ReportsFragment extends Fragment{
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
@@ -59,7 +59,8 @@ public class ReportsFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             GridLayoutManager glm = new GridLayoutManager(context, mColumnCount);
-            final ReportsCardViewAdapter reportsCardViewAdapter = new ReportsCardViewAdapter();
+            //TODO: Change this to a more generic way - Hardcoded this to BaseActivity, to avoid passing objects as serializable or parcelable due to lack of time.
+            final ReportsCardViewAdapter reportsCardViewAdapter = new ReportsCardViewAdapter(new DummyDataGenerator().getReports(), (BaseActivity)this.getActivity());
             glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
                 @Override
                 public int getSpanSize(int position) {
