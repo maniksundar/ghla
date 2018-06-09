@@ -37,10 +37,10 @@ public class DummyDataGenerator {
         // The following line shouldn't be placed inside membership constructor. It'll cause a stackoverflow.
         Membership membership = (Membership) new JSONHelper().deserializeJSON(MEMBERSHIP_JSON,Membership.class);
         System.out.println(membership);
-        report.setTitles(membership.titleList);
+        report.setReportContent(membership.reportContent);
         return report;
     }
-    
+
     Report generateMonitoringReport(){
         Metric metric =  new Metric(Metric.MetricType.Monitoring, generateRandomQuestions());
         Status status = new Status(Status.Value.NotStarted);

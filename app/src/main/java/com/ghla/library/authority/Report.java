@@ -10,7 +10,7 @@ public class Report implements ReportType{
     Metric mMetric;
     Status mStatus;
     Metric.MetricType mType;
-    private List<Title> titles;
+    private List<Title> reportContent;
 
     //Default constructor for the subclasses
     Report(){}
@@ -76,8 +76,8 @@ public class Report implements ReportType{
         this.mType = mMetric.type;
     }
 
-    protected void setTitles(List<Title> titles) {
-        this.titles = titles;
+    protected void setReportContent(List<Title> reportContent) {
+        this.reportContent = reportContent;
     }
 
     // Private methods
