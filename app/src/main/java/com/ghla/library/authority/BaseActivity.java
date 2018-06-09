@@ -9,7 +9,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, LibraryFragment.OnListFragmentInteractionListener, ReportsCardViewAdapter.OnItemClickListener {
+import com.ghla.library.authority.dummy.DummyContent;
+
+public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, LibraryFragment.OnListFragmentInteractionListener, ReportsCardViewAdapter.OnItemClickListener, ReportContentFragment.OnListFragmentInteractionListener {
 
 
     private HomeFragment m_homeFragment;
@@ -68,12 +70,18 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
     }
 
     @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
+
+    @Override
     public void onReportItemClick(Report report) {
         //Report clicked. Find type and transition to show the contents of the Report
         if(report.getType() == ReportType.TYPE_REPORT){
             if (report.getTitle() == Metric.MEMBERSHIP){
                 // Transition to ReportContentFragment.
                 System.out.println("Membership report clicked");
+                switchToFragment(new ReportContentFragment());
             }
         }
     }
