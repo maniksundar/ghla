@@ -11,7 +11,12 @@ import android.view.MenuItem;
 
 import com.ghla.library.authority.dummy.DummyContent;
 
-public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, LibraryFragment.OnListFragmentInteractionListener, ReportsCardViewAdapter.OnItemClickListener, ReportContentFragment.OnListFragmentInteractionListener {
+public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener,
+        ProfileFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener,
+        LibraryFragment.OnListFragmentInteractionListener,
+        ReportsCardViewAdapter.OnItemClickListener,
+        ReportContentFragment.OnListFragmentInteractionListener {
 
 
     private HomeFragment m_homeFragment;
