@@ -1,27 +1,38 @@
 {
-  "titles":[
-    {"type":1,
+  "titleList":[
+    {
       "text": "Total Number of New Library Membership",
       "subtitles":[
         {
           "text": "JUVENILE",
-          "questions":[{"text": "Male"},{"text": "Female"}]
+          "questions":[
+            {"text": "Male","answerable":true},
+            {"text": "Female","answerable":true}
+          ]
         },
         {
           "text": "ADULT",
-          "questions":[{"text": "Male"},{"text": "Female"}]
+          "questions":[
+            {"text": "Male","answerable":true},
+            {"text": "Female","answerable":true}]
         }]
     },
-    {"type":1,
+    {
       "text": "Total Number of Renewed Membership",
       "subtitles":[
         {
           "text": "JUVENILE",
-          "questions":[{"text": "Male"},{"text": "Female"}]
+          "questions":[
+            {"text": "Male","answerable":true},
+            {"text": "Female","answerable":true}
+          ]
         },
         {
           "text": "ADULT",
-          "questions":[{"text": "Male"},{"text": "Female"}]
+          "questions":[
+            {"text": "Male","answerable":true},
+            {"text": "Female","answerable":true}
+          ]
         }]
     }]
 }
