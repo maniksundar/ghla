@@ -2,11 +2,12 @@ package com.ghla.library.authority;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -117,20 +118,22 @@ class HeaderViewHolder extends ViewHolder{
 }
 
 class CardViewHolder extends ViewHolder {
+    protected CardView vCardView;
     protected TextView vTitle;
     protected ConstraintLayout vLayout;
-    protected ImageButton vReportImage;
+    protected ImageView vReportImage;
 
     public CardViewHolder(View v) {
         super(v);
-        vTitle = (TextView) v.findViewById(R.id.report_title);
-        vLayout = (ConstraintLayout) v.findViewById(R.id.report_layout);
-        vReportImage = (ImageButton) v.findViewById(R.id.report_image);
+        vCardView = v.findViewById(R.id.report_card);
+        vTitle = v.findViewById(R.id.report_title);
+        vLayout = v.findViewById(R.id.report_layout);
+        vReportImage = v.findViewById(R.id.report_image);
     }
 
     @Override
     public void bind(final Report report, final ReportsCardViewAdapter.OnItemClickListener listener) {
-        vLayout.setOnClickListener(
+        vCardView.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
