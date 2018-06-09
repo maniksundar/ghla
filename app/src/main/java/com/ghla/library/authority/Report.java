@@ -219,14 +219,14 @@ class Title{
     String text;
     int type;
     int answer;
-    boolean isAnswerable = false;
+    boolean answerable = false;
     List<Subtitle> subtitles;
     Title (String text){
         this.text = text;
     }
-    Title (String text, boolean isAnswerable){
+    Title (String text, boolean answerable){
         this.text = text;
-        this.isAnswerable = isAnswerable;
+        this.answerable = answerable;
     }
     void add(Subtitle subtitle) {
         if(this.subtitles == null){
@@ -239,13 +239,13 @@ class Subtitle{
     List<Question> questions;
     String text;
     int answer;
-    boolean isAnswerable = false;
+    boolean answerable = false;
     Subtitle(String text) {
         this.text = text;
     }
-    Subtitle (String text, boolean isAnswerable){
+    Subtitle (String text, boolean answerable){
         this.text = text;
-        this.isAnswerable = isAnswerable;
+        this.answerable = answerable;
     }
     void add (Question question){
         if (this.questions == null){
@@ -257,12 +257,12 @@ class Subtitle{
 class Question {
     String text;
     int answer;
-    boolean isAnswerable = true;
+    boolean answerable = false;
     Question(String questionText) {
         this.text = questionText;
     }
-    Question (String text, boolean isAnswerable){
+    Question (String text, boolean answerable){
         this.text = text;
-        this.isAnswerable = isAnswerable;
+        this.answerable = answerable;
     }
 }
