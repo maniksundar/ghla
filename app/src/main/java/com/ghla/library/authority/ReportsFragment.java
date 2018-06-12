@@ -32,8 +32,8 @@ public class ReportsFragment extends Fragment{
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ReportsFragment newInstance(int columnCount) {
-        ReportsFragment fragment = new ReportsFragment();
+    public static ReportContentFragment newInstance(int columnCount) {
+        ReportContentFragment fragment = new ReportContentFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 class Membership extends Report{
-    @SerializedName("titles")
+    @SerializedName("titleList")
     protected List<Title> reportContent;
     Membership(){
         // Membership typically contains type1 titles.

@@ -25,6 +25,8 @@ public class ReportContentFragment extends Fragment {
 
     // TODO: Customize parameters
     private int mColumnCount = 1;
+    private static final String REPORT= "REPORT";
+    private Report mReport = null;
 
     private OnListFragmentInteractionListener mListener;
 
@@ -38,7 +40,16 @@ public class ReportContentFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mReport = (Report) getArguments().get(REPORT);
 
+    }
+
+    public static ReportContentFragment newInstance(Report report) {
+        ReportContentFragment fragment = new ReportContentFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(REPORT, report);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -55,7 +66,7 @@ public class ReportContentFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyReportContentRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyReportContentRecyclerViewAdapter(mReport.getReportContent(), mListener));
         }
         return view;
     }
@@ -89,7 +100,5 @@ public class ReportContentFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
     }
 }

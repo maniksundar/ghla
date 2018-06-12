@@ -75,18 +75,13 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-
-    }
-
-    @Override
     public void onReportItemClick(Report report) {
         //Report clicked. Find type and transition to show the contents of the Report
         if(report.getType() == ReportType.TYPE_REPORT){
             if (report.getTitle() == Metric.MEMBERSHIP){
                 // Transition to ReportContentFragment.
                 System.out.println("Membership report clicked");
-                switchToFragment(new ReportContentFragment());
+                switchToFragment(ReportContentFragment.newInstance(report));
             }
         }
     }

@@ -1,12 +1,14 @@
 package com.ghla.library.authority;
 
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v4.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Report implements ReportType{
+public class Report implements ReportType, Parcelable{
     Metric mMetric;
     Status mStatus;
     Metric.MetricType mType;
@@ -80,8 +82,41 @@ public class Report implements ReportType{
         this.reportContent = reportContent;
     }
 
+    public List<Title> getReportContent() {
+        return reportContent;
+    }
+
     // Private methods
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.mType == null ? -1 : this.mType.ordinal());
+        dest.writeList(this.reportContent);
+    }
+
+    protected Report(Parcel in) {
+        int tmpMType = in.readInt();
+        this.mType = tmpMType == -1 ? null : Metric.MetricType.values()[tmpMType];
+        this.reportContent = new ArrayList<Title>();
+        in.readList(this.reportContent, Title.class.getClassLoader());
+    }
+
+    public static final Creator<Report> CREATOR = new Creator<Report>() {
+        @Override
+        public Report createFromParcel(Parcel source) {
+            return new Report(source);
+        }
+
+        @Override
+        public Report[] newArray(int size) {
+            return new Report[size];
+        }
+    };
 }
 
 class ReportHeader extends Report implements ReportType {
