@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Report implements ReportType, Parcelable{
+    enum Status{
+        NotStarted, Submitted, Approved, InReview
+    }
     Metric mMetric;
     Status mStatus;
     Metric.MetricType mType;
@@ -86,7 +89,14 @@ public class Report implements ReportType, Parcelable{
         return reportContent;
     }
 
-    // Private methods
+    public void setStatus(Status mStatus) {
+        this.mStatus = mStatus;
+    }
+
+    public Status getmStatus() {
+        return mStatus;
+    }
+// Private methods
 
     @Override
     public int describeContents() {
@@ -200,16 +210,6 @@ class Metric{
     }
 }
 
-class Status{
-    Value value;
-
-    Status(Value value) {
-        this.value = value;
-    }
-    enum Value{
-        NotStarted, Submitted, Approved
-    }
-}
 
 class Person{
     String name;

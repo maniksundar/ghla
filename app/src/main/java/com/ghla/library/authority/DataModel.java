@@ -30,6 +30,8 @@ public class DataModel {
         //Save to the disk or send over the network.
         mDisk.saveReportAs(reportJSON, MEMBERSHIP);
 //        mNetwork.postJSON(reportJSON);
+        //Change the state to submitted once sent
+        report.setStatus(Report.Status.Submitted);
     }
 
     Report getMembershipReport(){
