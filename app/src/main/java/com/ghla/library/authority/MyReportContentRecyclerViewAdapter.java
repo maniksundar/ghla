@@ -1,5 +1,6 @@
 package com.ghla.library.authority;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,32 +32,40 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_reportcontent, parent, false);
-        LinearLayout linearLayout = (LinearLayout) view;
-        ViewGroup.LayoutParams lparams = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        TextView tv = new TextView(parent.getContext());
-        tv.setLayoutParams(lparams);
-        tv.setText("Subtitle");
-        linearLayout.addView(tv);
-
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mTitleView.setText(mTitles.get(position).text);
-        holder.mSubtitleView.setText(mTitles.get(position).subtitles.get(0).text);
-        holder.mQuestionView.setText(mTitles.get(position).subtitles.get(0).questions.get(0).text);
-//        LayoutInflater vi = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View v = vi.inflate(R.layout.fragment_reportcontent, null);
-//        ViewGroup membership = v.findViewById(R.id.membership_parent);
-//        TextView textView = v.findViewById(R.id.membership_subtitle);
-//        textView.setText(mTitles.get(position).subtitles.get(1).text);
-//        membership.addView(textView, -1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-//
-//        textView = v.findViewById(R.id.membership_question);
-//        textView.setText(mTitles.get(position).subtitles.get(0).questions.get(1).text);
-//        membership.addView(textView, -1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        Title title = mTitles.get(position);
+        LinearLayout linearLayout = (LinearLayout) holder.mView;
+        addTitleView(linearLayout, title.text);
+        for (Subtitle subtitle: title.subtitles){
+            addSubtitleView(linearLayout, subtitle.text);
+            for (Question question : subtitle.questions){
+                addQuestionView(linearLayout, question.text);
+            }
+        }
+    }
+
+    void addTitleView (LinearLayout layout, String text) {
+        LinearLayout ll = layout.findViewById(R.id.title);
+        TextView tv = ll.findViewById(R.id.text);
+        tv.setText(text);
+    }
+    void addSubtitleView (LinearLayout layout, String text) {
+        LayoutInflater vi = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View subtitleLayout = vi.inflate(R.layout.report_content_subtitle, null);
+        TextView tv = subtitleLayout.findViewById(R.id.text);
+        tv.setText(text);
+        layout.addView(subtitleLayout);
+    }
+    void addQuestionView (LinearLayout layout, String text) {
+        LayoutInflater vi = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View questionLayout = vi.inflate(R.layout.report_content_question, null);
+        TextView tv = questionLayout.findViewById(R.id.text);
+        tv.setText(text);
+        layout.addView(questionLayout);
     }
 
     @Override
@@ -65,16 +74,12 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView mTitleView;
-        public final TextView mSubtitleView;
-        public final TextView mQuestionView;
+        public View mView;
         public Title title;
 
         public ViewHolder(View view) {
             super(view);
-            mTitleView = view.findViewById(R.id.membership_title);
-            mSubtitleView = view.findViewById(R.id.membership_subtitle);
-            mQuestionView = view.findViewById(R.id.membership_question);
+            mView = view;
         }
     }
 }
