@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.ghla.library.authority.ReportContentFragment.OnListFragmentInteractionListener;
 import com.ghla.library.authority.dummy.DummyContent.DummyItem;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,11 +27,13 @@ import java.util.List;
  */
 public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyReportContentRecyclerViewAdapter.ViewHolder> {
 
+    private Report mReport;
     private final List<Title> mTitles;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyReportContentRecyclerViewAdapter(List<Title> titles, OnListFragmentInteractionListener listener) {
-        mTitles = titles;
+    public MyReportContentRecyclerViewAdapter(Report report, OnListFragmentInteractionListener listener) {
+        mReport = report;
+        mTitles = report.getReportContent();
         mListener = listener;
     }
 
@@ -87,8 +91,10 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
             @Override
             public void onClick(View v) {
                 // Ready to submit the form
-                // Send the Membership report to the Network layer
                 System.out.println(mTitles);
+                mReport.setReportContent(mTitles);
+                // Send an event that the Membership report can be submitted.
+                EventBus.getDefault().post(mReport);
             }
         });
         layout.addView(buttonLayout);

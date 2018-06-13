@@ -11,6 +11,9 @@ import android.view.MenuItem;
 
 import com.ghla.library.authority.dummy.DummyContent;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 public class BaseActivity extends AppCompatActivity implements ReportsFragment.OnListFragmentInteractionListener,
         ProfileFragment.OnFragmentInteractionListener,
         HomeFragment.OnFragmentInteractionListener,
@@ -63,6 +66,11 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
         switchToFragment(m_homeFragment);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -108,4 +116,14 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
         super.onBackPressed();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe
+    public void onEvent(Report event) {
+            System.out.println("Message received");
+    }
 }

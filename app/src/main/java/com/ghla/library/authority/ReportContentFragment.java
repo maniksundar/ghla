@@ -66,7 +66,7 @@ public class ReportContentFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyReportContentRecyclerViewAdapter(mReport.getReportContent(), mListener));
+            recyclerView.setAdapter(new MyReportContentRecyclerViewAdapter(mReport, mListener));
         }
         return view;
     }
