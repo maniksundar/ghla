@@ -27,6 +27,9 @@ public class DataModel {
         //Save to the disk or send over the DataModel.
         mDisk.saveToDisk(report);
         mNetwork.sendOverNetwork(report);
+        //Either the model can be sent or the JSON can be sent over the network
+        String reportJSON = new JSONHelper().convertModeltoJson(report);
+        mNetwork.sendOverNetwork(reportJSON);
     }
 
     void sendOverDataModel(Report report){

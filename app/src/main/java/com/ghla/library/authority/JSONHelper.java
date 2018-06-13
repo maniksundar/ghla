@@ -31,4 +31,9 @@ class JSONHelper {
         }
         return json;
     }
+
+    String convertModeltoJson(Report report){
+        Gson gson = new Gson();
+        return gson.toJson(report);
+    }
 }
