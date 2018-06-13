@@ -47,5 +47,6 @@
     <string name="FRAGMENT_PASSWORD">password</string>
     <string name="FRAGMENT_PHONE">phone</string>
     <string name="FRAGMENT_EMAIL">email</string>
+    <string name="submitMembershipReport">submitMembershipReport</string>
 
 </resources>

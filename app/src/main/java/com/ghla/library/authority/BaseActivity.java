@@ -123,7 +123,9 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
     }
 
     @Subscribe
-    public void onEvent(Report event) {
-            System.out.println("Message received");
+    public void onEvent(Events event) {
+        if(event.message.equals(getString(R.string.submitMembershipReport))){
+            DataModel.getInstance().submitMembershipReport(event.report);
+        }
     }
 }

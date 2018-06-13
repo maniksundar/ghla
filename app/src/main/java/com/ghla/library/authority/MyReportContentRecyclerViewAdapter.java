@@ -94,7 +94,7 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
                 System.out.println(mTitles);
                 mReport.setReportContent(mTitles);
                 // Send an event that the Membership report can be submitted.
-                EventBus.getDefault().post(mReport);
+                EventBus.getDefault().post(new Events(mReport, App.getContext().getString(R.string.submitMembershipReport)));
             }
         });
         layout.addView(buttonLayout);
