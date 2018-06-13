@@ -35,7 +35,13 @@ public class ReportContentFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mReport = (Report) getArguments().get(REPORT);
+        //If there is a report in progress use it
+        Report savedReport = DataModel.getInstance().getMembershipReport();
+        if(savedReport != null){
+            mReport = savedReport;
+        }else{
+            mReport = (Report) getArguments().get(REPORT);
+        }
 
     }
 

@@ -8,6 +8,7 @@ public class DataModel {
     
     private static Network mNetwork;
     private static Disk mDisk;
+    private static final String MEMBERSHIP = "membership";
 
     private static DataModel DataModel = null;
 
@@ -23,13 +24,16 @@ public class DataModel {
         return DataModel;
     }
 
-    static void submitMembershipReport(Report report){
-        //Save to the disk or send over the DataModel.
-        mDisk.saveToDisk(report);
-        mNetwork.sendOverNetwork(report);
-        //Either the model can be sent or the JSON can be sent over the network
+    void submitMembershipReport(Report report){
+        //Convert to JSON
         String reportJSON = new JSONHelper().convertModeltoJson(report);
-        mNetwork.sendOverNetwork(reportJSON);
+        //Save to the disk or send over the network.
+        mDisk.saveReportAs(reportJSON, MEMBERSHIP);
+//        mNetwork.postJSON(reportJSON);
+    }
+
+    Report getMembershipReport(){
+        return (Report) new JSONHelper().deserializeJSON(mDisk.getReport(MEMBERSHIP), Membership.class);
     }
 
     void sendOverDataModel(Report report){

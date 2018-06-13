@@ -6,9 +6,19 @@ import java.io.InputStream;
 
 class JSONHelper {
 
-    Object deserializeJSON(String filename, Class c){
+    Object deserializeJSONFromFile(String filename, Class c){
         try {
             String json = readJSONFromFile(filename);
+            Gson gson = new Gson();
+            return gson.fromJson(json,c);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    Object deserializeJSON(String json, Class c){
+        try {
             Gson gson = new Gson();
             return gson.fromJson(json,c);
         } catch (Exception e) {

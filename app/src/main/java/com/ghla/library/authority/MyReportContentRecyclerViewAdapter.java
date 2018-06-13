@@ -70,6 +70,7 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
         tv.setText(question.text);
         EditText answerEdit = questionLayout.findViewById(R.id.answerEdit);
         answerEdit.addTextChangedListener(new AnswerWatcher(question));
+        if(question.answer != 0)answerEdit.setText(Integer.toString(question.answer));
         layout.addView(questionLayout);
     }
 
@@ -133,7 +134,9 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            setAnswer(dataModel, Integer.parseInt(s.toString()));
+            if(s.length() > 0){
+                setAnswer(dataModel, Integer.parseInt(s.toString()));
+            }
         }
 
         @Override

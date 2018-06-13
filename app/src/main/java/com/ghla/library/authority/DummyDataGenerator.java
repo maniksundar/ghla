@@ -35,7 +35,7 @@ public class DummyDataGenerator {
         Status status = new Status(Status.Value.NotStarted);
         Report report = new Report(metric, status);
         // The following line shouldn't be placed inside membership constructor. It'll cause a stackoverflow.
-        Membership membership = (Membership) new JSONHelper().deserializeJSON(MEMBERSHIP_JSON,Membership.class);
+        Membership membership = (Membership) new JSONHelper().deserializeJSONFromFile(MEMBERSHIP_JSON,Membership.class);
         System.out.println(membership);
         report.setReportContent(membership.reportContent);
         return report;
