@@ -8,8 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.ghla.library.authority.dummy.DummyContent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -126,6 +126,9 @@ public class BaseActivity extends AppCompatActivity implements ReportsFragment.O
     public void onEvent(Events event) {
         if(event.message.equals(getString(R.string.submitMembershipReport))){
             DataModel.getInstance().submitMembershipReport(event.report);
+            Toast.makeText(this, "Report Submitted", Toast.LENGTH_SHORT).show();
+            //Also replace the fragment
+            switchToFragment(m_reportsFragment);
         }
     }
 }
