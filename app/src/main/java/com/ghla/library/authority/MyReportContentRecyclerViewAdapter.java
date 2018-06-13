@@ -11,20 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.ghla.library.authority.ReportContentFragment.OnListFragmentInteractionListener;
-import com.ghla.library.authority.dummy.DummyContent.DummyItem;
-
 import org.greenrobot.eventbus.EventBus;
-
-import java.util.HashMap;
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
 public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyReportContentRecyclerViewAdapter.ViewHolder> {
 
     private Report mReport;
