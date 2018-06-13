@@ -3,6 +3,10 @@
     android:id="@+id/membership_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:padding="16dp"
     android:orientation="vertical">
 
     <include android:id="@+id/title" layout="@layout/report_content_title"/>

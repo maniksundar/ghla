@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     >
 
     <TextView
@@ -9,18 +11,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Question"
-        android:textSize="14dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorTextMetric"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_vertical_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
+
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:textSize="14dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_vertical_margin"
-        android:textColor="@color/colorGrey"
-        android:background="@drawable/textview_gray"
-        />
+        android:background="@drawable/textview_gray_sharp_edge"
+        android:inputType="number"
+        android:textColor="@color/colorTextMetric"
+        android:textSize="16sp" />
 
 </LinearLayout>

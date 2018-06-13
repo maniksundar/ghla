@@ -39,7 +39,8 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Title title = mTitles.get(position);
         LinearLayout linearLayout = (LinearLayout) holder.mView;
-        addTitleView(linearLayout, title.text);
+        addTitleView(linearLayout, position+1 + ". " + title.text);
+        //Dynamically add the subtitle and question views.
         for (Subtitle subtitle: title.subtitles){
             addSubtitleView(linearLayout, subtitle.text);
             for (Question question : subtitle.questions){
