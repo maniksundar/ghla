@@ -88,7 +88,8 @@ EventBus is used to communicate between different models / activities and fragme
 The following code sends an event that the Membership report can be submitted.
 
 ```
-EventBus.getDefault().post(new Events(mReport, App.getContext().getString(R.string.submitMembershipReport)));
+EventBus.getDefault()
+.post(new Events(mReport, App.getContext().getString(R.string.submitMembershipReport)));
 ```
 
 ## Data Model
@@ -102,7 +103,7 @@ DataModel.getInstance().submitMembershipReport(event.report);
 
 ### Network
 
-Singleton instance responsible for saving and retrieving data to and from the disk. Currently, [OkHttpClient library link] (https://github.com/square/okhttp) is used under the hood to make the REST calls to the server.
+Singleton instance responsible for saving and retrieving data to and from the disk. Currently, [OkHttpClient library] (https://github.com/square/okhttp) is used under the hood to make the REST calls to the server.
 
 Sample code to post JSON to the server.
 
@@ -129,9 +130,10 @@ The app communicates with the server by making REST calls and consuming and prod
 
 The following third party libraries are used in the app.
 
-* [okHttpClient link] (https://github.com/square/okhttp)
-* [EventBus link] (https://github.com/greenrobot/EventBus)
+* [okHttpClient] (https://github.com/square/okhttp)
+* [EventBus] (https://github.com/greenrobot/EventBus)
 * [Gson] (https://github.com/google/gson)
+[**Visit the website.**](http://markdown-here.com)
 
 ## Versioning
 
