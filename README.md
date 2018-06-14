@@ -53,6 +53,7 @@ The code is flexible enough such that when a metric is edited in the server/clie
 ### Editing the JSON
 
 * Before editing
+
 ```
        { "text": "JUVENILE",
           "questions":[
@@ -73,6 +74,7 @@ The column above with the text JUVENILE is not editable. Let's assume that we wa
           ]
       }
 ```
+
 No other code changes are needed within the app. The app is flexible enough to render without any compilation errors. If you encounter any errors here, make sure that there are no errors in the JSON and also make sure that JSON keys comply the data model types defined in the app. Gson is used to serialize and deserialize the JSON 
 
 ### Classes - Title, Subtitle and Question
@@ -103,7 +105,7 @@ DataModel.getInstance().submitMembershipReport(event.report);
 
 ### Network
 
-Singleton instance responsible for saving and retrieving data to and from the disk. Currently, [OkHttpClient library] (https://github.com/square/okhttp) is used under the hood to make the REST calls to the server.
+Singleton instance responsible for saving and retrieving data to and from the disk. Currently, [OkHttpClient library](https://github.com/square/okhttp) is used under the hood to make the REST calls to the server.
 
 Sample code to post JSON to the server.
 
@@ -130,10 +132,9 @@ The app communicates with the server by making REST calls and consuming and prod
 
 The following third party libraries are used in the app.
 
-* [okHttpClient] (https://github.com/square/okhttp)
-* [EventBus] (https://github.com/greenrobot/EventBus)
-* [Gson] (https://github.com/google/gson)
-[**Visit the website.**](http://markdown-here.com)
+* [okHttpClient](https://github.com/square/okhttp)
+* [EventBus](https://github.com/greenrobot/EventBus)
+* [Gson](https://github.com/google/gson)
 
 ## Versioning
 
@@ -141,7 +142,7 @@ Git is used as the version control system
 
 ## Authors
 
-* **Sundar Venkatesh** - *Initial work* - [maniksundar](https://github.com/maniksundar)
+* *Initial work* - [ **Sundar Venkatesh**](https://github.com/maniksundar)
 
 ## License
 
