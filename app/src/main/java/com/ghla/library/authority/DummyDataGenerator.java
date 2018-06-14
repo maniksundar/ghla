@@ -32,8 +32,7 @@ public class DummyDataGenerator {
 
     Report generateMemberShipReport(){
         Metric metric =  new Metric(Metric.MetricType.Membership, generateRandomQuestions());
-        Status status = new Status(Status.Value.NotStarted);
-        Report report = new Report(metric, status);
+        Report report = new Report(metric);
         // The following line shouldn't be placed inside membership constructor. It'll cause a stackoverflow.
         Membership membership = (Membership) new JSONHelper().deserializeJSONFromFile(MEMBERSHIP_JSON,Membership.class);
         System.out.println(membership);
@@ -43,43 +42,37 @@ public class DummyDataGenerator {
 
     Report generateMonitoringReport(){
         Metric metric =  new Metric(Metric.MetricType.Monitoring, generateRandomQuestions());
-        Status status = new Status(Status.Value.NotStarted);
-        Report report = new Report(metric, status);
+        Report report = new Report(metric);
         return report;
     }
 
     Report generateExtensionReport(){
         Metric metric =  new Metric(Metric.MetricType.Extension, generateRandomQuestions());
-        Status status = new Status(Status.Value.NotStarted);
-        Report report = new Report(metric, status);
+        Report report = new Report(metric);
         return report;
     }
 
     Report generateResourcesMonthlyReport(){
         Metric metric =  new Metric(Metric.MetricType.ResourcesMonthly, generateRandomQuestions());
-        Status status = new Status(Status.Value.NotStarted);
-        Report report = new Report(metric, status);
+        Report report = new Report(metric);
         return report;
     }
 
     Report generateResourcesDailyReport(){
         Metric metric =  new Metric(Metric.MetricType.ResourcesDaily, generateRandomQuestions());
-        Status status = new Status(Status.Value.NotStarted);
-        Report report = new Report(metric, status);
+        Report report = new Report(metric);
         return report;
     }
 
     Report generateFinanceMonthlyReport(){
         Metric metric =  new Metric(Metric.MetricType.FinanceMonthly, generateRandomQuestions());
-        Status status = new Status(Status.Value.NotStarted);
-        Report report = new Report(metric, status);
+        Report report = new Report(metric);
         return report;
     }
 
     Report generateFinanceWeeklyReport(){
         Metric metric =  new Metric(Metric.MetricType.FinanceWeekly, generateRandomQuestions());
-        Status status = new Status(Status.Value.NotStarted);
-        Report report = new Report(metric, status);
+        Report report = new Report(metric);
         return report;
     }
 

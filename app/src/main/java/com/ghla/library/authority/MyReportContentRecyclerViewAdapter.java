@@ -84,6 +84,7 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
                 // Ready to submit the form
                 System.out.println(mTitles);
                 mReport.setReportContent(mTitles);
+                mReport.setStatus(Report.Status.Submitted);
                 // Send an event that the Membership report can be submitted.
                 EventBus.getDefault().post(new Events(mReport, App.getContext().getString(R.string.submitMembershipReport)));
             }

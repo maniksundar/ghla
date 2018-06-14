@@ -75,9 +75,9 @@ public class Report implements ReportType, Parcelable{
         return TYPE_REPORT;
     }
 
-    Report(Metric mMetric, Status status) {
+    Report(Metric mMetric) {
         this.mMetric = mMetric;
-        this.mStatus = status;
+        this.mStatus = Status.NotStarted;
         this.mType = mMetric.type;
     }
 
