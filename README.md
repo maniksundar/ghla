@@ -46,9 +46,9 @@ Reports can be in the following states - NotStarted, InProgress, Submitted, InRe
 
 ### Hybrid Approach
 
-The key part of the data architecture is the KPI metrics. The KPI metrics which were originally in the Excel sheet has been translated to JSON format. JSON is chosen as the data format because it is human readable  + machine readable and light weight. The app uses a hybrid approach for the KPI metrics. It keeps a copy of the metric locally and also in the server. Since the app needs to be fast and light weight, and the KPI metrics don't change frequently, the KPI metrics are cached in the app. The cached version is used when there is no internet. The app pings the server and makes sure that the locally cached KPI metric is up to date with the server copy whenever it has access to the internet. Inorder to edit the metrics easily, the server keeps a copy of the KPI metrics as well. For instance if a typo is found in all the apps, then the server KPI metric can be edited to force a refresh on all the clients. 
+The key part of the data architecture is the KPI metrics. The KPI metrics which were originally in the Excel sheet has been translated to JSON format. JSON is chosen as the data format because it is human readable  + machine readable and light weight. The app uses a hybrid approach for the KPI metrics. It keeps a copy of the metric locally and also in the server. Since the app needs to be fast and light weight, and the KPI metrics don't change frequently, the KPI metrics are cached in the app. The cached version is used when there is no internet. The app pings the server and makes sure that the locally cached KPI metric is up to date with the server copy whenever it has access to the internet. Inorder to edit the metrics easily, the server keeps a copy of the KPI metrics as well. For instance if a typo is found in a single metric in all the apps, then the server KPI metric can be edited to force a refresh on all the clients. 
 
-The code is flexible enough in such a way that when a metric is edited in the server/client, the Android UI components dynamically add EditText views accordingly based on the JSON file. The process is explained in the *Editing the JSON* section.
+The code is flexible enough such that when a metric is edited in the server/client, the Android UI components dynamically add EditText views accordingly based on the JSON file. The process is explained in the *Editing the JSON* section.
 
 ### Editing the JSON
 
@@ -73,6 +73,7 @@ The column above with the text JUVENILE is not editable. Let's assume that we wa
           ]
       }
 ```
+No other code changes are needed within the app. The app is flexible enough to render without any compilation errors. If you encounter any errors here, make sure that there are no errors in the JSON and also make sure that JSON keys comply the data model types defined in the app. Gson is used to serialize and deserialize the JSON 
 
 ### Classes - Title, Subtitle and Question
 
