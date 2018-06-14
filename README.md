@@ -102,7 +102,7 @@ DataModel.getInstance().submitMembershipReport(event.report);
 
 ### Network
 
-Singleton instance responsible for saving and retrieving data to and from the disk. Currently, [OkHttpClient library] (https://github.com/square/okhttp) is used under the hood to make the REST calls to the server.
+Singleton instance responsible for saving and retrieving data to and from the disk. Currently, [OkHttpClient library link] (https://github.com/square/okhttp) is used under the hood to make the REST calls to the server.
 
 Sample code to post JSON to the server.
 
@@ -129,8 +129,8 @@ The app communicates with the server by making REST calls and consuming and prod
 
 The following third party libraries are used in the app.
 
-* [okHttpClient] (https://github.com/square/okhttp)
-* [EventBus] (https://github.com/greenrobot/EventBus)
+* [okHttpClient link] (https://github.com/square/okhttp)
+* [EventBus link] (https://github.com/greenrobot/EventBus)
 * [Gson] (https://github.com/google/gson)
 
 ## Versioning
