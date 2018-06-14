@@ -14,4 +14,16 @@
         android:textColor="@color/colorTextMetric"
         android:textAppearance="?attr/textAppearanceListItem" />
 
+    <EditText
+        android:id="@+id/answerEdit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:background="@drawable/textview_gray_sharp_edge"
+        android:inputType="number"
+        android:textColor="@color/colorTextMetric"
+        android:visibility="gone"
+        android:textSize="16sp" />
+
 </LinearLayout>

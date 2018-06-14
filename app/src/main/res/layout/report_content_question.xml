@@ -26,6 +26,7 @@
         android:background="@drawable/textview_gray_sharp_edge"
         android:inputType="number"
         android:textColor="@color/colorTextMetric"
+        android:visibility="gone"
         android:textSize="16sp" />
 
 </LinearLayout>

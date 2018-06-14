@@ -9,6 +9,4 @@
     android:padding="16dp"
     android:orientation="vertical">
 
-    <include android:id="@+id/title" layout="@layout/report_content_title"/>
-
 </LinearLayout>

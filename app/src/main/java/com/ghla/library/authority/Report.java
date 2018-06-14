@@ -249,12 +249,18 @@ class Region{
     Person regionalManager;
 }
 
+interface Answerable{
+    boolean answerable();
+    int getAnswer();
+    void setAnswer(int answer);
+}
+
 // Every title has an array of subtitles
-class Title{
+class Title implements Answerable{
     String text;
     int type;
     int answer;
-    boolean answerable = false;
+    private boolean answerable = false;
     List<Subtitle> subtitles;
     Title (String text){
         this.text = text;
@@ -269,12 +275,26 @@ class Title{
         }
         this.subtitles.add(subtitle);
     }
+    @Override
+    public boolean answerable() {
+        return answerable;
+    }
+
+    @Override
+    public int getAnswer() {
+        return answer;
+    }
+
+    @Override
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
 }
-class Subtitle{
+class Subtitle implements Answerable{
     List<Question> questions;
     String text;
     int answer;
-    boolean answerable = false;
+    private boolean answerable = false;
     Subtitle(String text) {
         this.text = text;
     }
@@ -288,16 +308,43 @@ class Subtitle{
         }
         questions.add(question);
     }
+    @Override
+    public boolean answerable() {
+        return answerable;
+    }
+    @Override
+    public int getAnswer() {
+        return answer;
+    }
+
+    @Override
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
 }
-class Question {
+class Question implements Answerable{
     String text;
     int answer;
-    boolean answerable = false;
+    private boolean answerable = false;
     Question(String questionText) {
         this.text = questionText;
     }
     Question (String text, boolean answerable){
         this.text = text;
         this.answerable = answerable;
+    }
+
+    @Override
+    public boolean answerable() {
+        return answerable;
+    }
+    @Override
+    public int getAnswer() {
+        return answer;
+    }
+
+    @Override
+    public void setAnswer(int answer) {
+        this.answer = answer;
     }
 }

@@ -42,10 +42,10 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Title title = mTitles.get(position);
         LinearLayout linearLayout = (LinearLayout) holder.mView;
-        addTitleView(linearLayout, position+1 + ". " + title.text);
+        addTitleView(linearLayout, title);
         //Dynamically add the subtitle and question views.
         for (Subtitle subtitle: title.subtitles){
-            addSubtitleView(linearLayout, subtitle.text);
+            addSubtitleView(linearLayout, subtitle);
             for (Question question : subtitle.questions){
                 addQuestionView(linearLayout, question);
             }
@@ -61,16 +61,21 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
         }
     }
 
-    void addTitleView (LinearLayout layout, String text) {
-        LinearLayout ll = layout.findViewById(R.id.title);
-        TextView tv = ll.findViewById(R.id.text);
-        tv.setText(text);
+    void addTitleView (LinearLayout layout, Title title) {
+        LayoutInflater vi = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View titleLayout = vi.inflate(R.layout.report_content_title, null);
+        TextView tv = titleLayout.findViewById(R.id.text);
+        tv.setText(title.text);
+        addEditText(titleLayout, title);
+        layout.addView(titleLayout);
     }
-    void addSubtitleView (LinearLayout layout, String text) {
+
+    void addSubtitleView (LinearLayout layout, Subtitle subtitle) {
         LayoutInflater vi = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View subtitleLayout = vi.inflate(R.layout.report_content_subtitle, null);
         TextView tv = subtitleLayout.findViewById(R.id.text);
-        tv.setText(text);
+        tv.setText(subtitle.text);
+        addEditText(subtitleLayout, subtitle);
         layout.addView(subtitleLayout);
     }
     void addQuestionView (LinearLayout layout, Question question) {
@@ -78,10 +83,18 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
         View questionLayout = vi.inflate(R.layout.report_content_question, null);
         TextView tv = questionLayout.findViewById(R.id.text);
         tv.setText(question.text);
-        EditText answerEdit = questionLayout.findViewById(R.id.answerEdit);
-        answerEdit.addTextChangedListener(new AnswerWatcher(question));
-        if(question.answer != 0)answerEdit.setText(Integer.toString(question.answer));
+        addEditText(questionLayout, question);
         layout.addView(questionLayout);
+    }
+
+
+    void addEditText(View layout, Answerable answerable){
+        //If the field contains answerable true, only then add the EditText field.
+        if(!answerable.answerable()) return;
+        EditText answerEdit = layout.findViewById(R.id.answerEdit);
+        answerEdit.setVisibility(View.VISIBLE);
+        answerEdit.addTextChangedListener(new AnswerWatcher(answerable));
+        if(answerable.getAnswer() != 0)answerEdit.setText(Integer.toString(answerable.getAnswer()));
     }
 
     void addButtons(LinearLayout layout){
@@ -127,17 +140,8 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
         layout.addView(buttonLayout);
     }
 
-    void setAnswer(Object object, Integer answer){
-        if (object.getClass() == Question.class){
-            Question obj = (Question) object;
-            obj.answer = answer;
-        } else if (object.getClass() == Question.class){
-            Subtitle obj = (Subtitle) object;
-            obj.answer = answer;
-        } else if (object.getClass() == Question.class){
-            Title obj = (Title) object;
-            obj.answer = answer;
-        }
+    void setAnswer(Answerable answerable, Integer answer){
+        answerable.setAnswer(answer);
     }
 
     @Override
@@ -157,9 +161,9 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
 
     class AnswerWatcher implements TextWatcher {
 
-        Object dataModel;
+        Answerable dataModel;
 
-        AnswerWatcher(Object dataModel){
+        AnswerWatcher(Answerable dataModel){
             this.dataModel = dataModel;
         }
 
