@@ -77,11 +77,23 @@ The column above with the text JUVENILE is not editable. Let's assume that we wa
 
 No other code changes are needed within the app. The app is flexible enough to render without any compilation errors. If you encounter any errors here, make sure that there are no errors in the JSON and also make sure that JSON keys comply the data model types defined in the app. Gson is used to serialize and deserialize the JSON 
 
-### Classes - Title, Subtitle and Question
+### Classes and Interfaces
 
-### Interfaces - Answerable (Important for the UI components to work seamlessly)
+Important classes and their functions are listed here.
+
+All the important data models are implemented in a single java file [Report.java]((../../blob/master/app/src/main/java/com/ghla/library/authority/Report.java)) to prevent file bloat in the application. If seen fit, these classes can be moved into a separately file.
+
+[Title, Subtitle and Question](../../blob/master/app/src/main/java/com/ghla/library/authority/Report.java). These are the main objects that are deserialized from the JSON. All these classes implement the Answerable interface to wire the data up with the UI components.
+
+[JSONHelper](../../blob/master/app/src/main/java/com/ghla/library/authority/JSONHelper.java) provides the necessary abstraction for  taking care of serializing and deserializing with the Gson library. If Gson were to be replaced by another library, then code changes can be limited only to this file.
+
+[Membership.java](../../blob/master/app/src/main/java/com/ghla/library/authority/Membership.java) is the class that Gson uses to deserialize the JSON.
+
+[Interfaces - Answerable](../../blob/master/app/src/main/java/com/ghla/library/authority/Report.java) (Important for the UI components to work seamlessly)
 
 The different question types (Title, subtitle and Question) implement the Answerable interface. If a new question type were to be added in the future, it's important that the new question type implements the Answerable interface for the UI components to work seamlessly.
+
+Fragments - The app primarily uses one activity many fragments philosophy for reusability. Interaction between fragments can be done efficiently using the EventBus library. 
 
 ## Communication within the app
 
@@ -96,7 +108,7 @@ EventBus.getDefault()
 
 ## Data Model
 
-Singleton instance responsible for saving and retrieving data to the disk. This class is mainly responsible for interacting between the app and the Network and the Disk components. The Network and Disk components are not accessed directly from the app for encapsulation. This class provides the necessary abstraction between the activities, fragments and the Network and Disk layer. 
+Singleton instance responsible for saving and retrieving data to the disk. This class is mainly responsible for code separation between the app and the Network + Disk components. The Network and Disk components are not accessed directly from the app. This class provides the necessary abstraction between the activities, fragments and the Network and Disk layer. 
 
 ```
 DataModel.getInstance().submitMembershipReport(event.report);
@@ -126,7 +138,7 @@ Disk disk = Disk.getInstance().saveReportAs(String json, String file);
 
 ## Interaction with the Server 
 
-The app communicates with the server by making REST calls and consuming and producing JSON as the data format. Most of the interaction is inside the Network abstraction class. The server component is not part of this codebase and is implemented outside this.
+The app can communicate with the server by making REST calls and consuming and producing JSON as the data format. Most of the interaction is inside the Network abstraction class. The server component is not part of this codebase.
 
 ## Built With
 
