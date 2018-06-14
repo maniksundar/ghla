@@ -13,6 +13,32 @@
         android:id="@+id/submit_button"
         android:background="@drawable/button_green"
         android:text="Submit"
+        android:visibility="gone"
+        android:textAllCaps="false"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:textColor="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:text="Status: Submitted"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/edit_button"
+        android:background="@drawable/button_green"
+        android:visibility="gone"
+        android:text="Edit"
         android:textAllCaps="false"
         android:layout_margin="16dp"
         android:padding="16dp"

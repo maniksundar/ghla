@@ -20,6 +20,10 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
     private Report mReport;
     private final List<Title> mTitles;
     private final OnListFragmentInteractionListener mListener;
+    private Button mSubmitButton;
+    private Button mEditButton;
+    private TextView mStatusTextView;
+
 
     public MyReportContentRecyclerViewAdapter(Report report, OnListFragmentInteractionListener listener) {
         mReport = report;
@@ -47,7 +51,13 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
             }
         }
         if(position == mTitles.size()-1){
-            addSubmitButtonToLastTitle(linearLayout);
+            addButtons(linearLayout);
+            if (mReport.getmStatus() != Report.Status.Submitted) {
+                mSubmitButton.setVisibility(View.VISIBLE);
+            } else{
+                mStatusTextView.setVisibility(View.VISIBLE);
+                mEditButton.setVisibility(View.VISIBLE);
+            }
         }
     }
 
@@ -74,10 +84,16 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
         layout.addView(questionLayout);
     }
 
+    void addButtons(LinearLayout layout){
+        addSubmitButtonToLastTitle(layout);
+        addEditButtonToLastTitle(layout);
+    }
+
     void addSubmitButtonToLastTitle(LinearLayout layout) {
         LayoutInflater vi = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View buttonLayout = vi.inflate(R.layout.report_content_submit, null);
         Button button = buttonLayout.findViewById(R.id.submit_button);
+        mSubmitButton = button;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +103,25 @@ public class MyReportContentRecyclerViewAdapter extends RecyclerView.Adapter<MyR
                 mReport.setStatus(Report.Status.Submitted);
                 // Send an event that the Membership report can be submitted.
                 EventBus.getDefault().post(new Events(mReport, App.getContext().getString(R.string.submitMembershipReport)));
+            }
+        });
+        layout.addView(buttonLayout);
+    }
+
+    void addEditButtonToLastTitle(LinearLayout layout) {
+        LayoutInflater vi = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View buttonLayout = vi.inflate(R.layout.report_content_submit, null);
+        TextView textView = buttonLayout.findViewById(R.id.status_text);
+        mStatusTextView = textView;
+        Button button = buttonLayout.findViewById(R.id.edit_button);
+        mEditButton = button;
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mReport.setStatus(Report.Status.InProgress);
+                mEditButton.setVisibility(View.GONE);
+                mStatusTextView.setVisibility(View.GONE);
+                mSubmitButton.setVisibility(View.VISIBLE);
             }
         });
         layout.addView(buttonLayout);

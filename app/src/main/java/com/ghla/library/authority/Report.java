@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Report implements ReportType, Parcelable{
     enum Status{
-        NotStarted, Submitted, Approved, InReview
+        NotStarted, InProgress, Submitted, InReview, Approved
     }
     Metric mMetric;
     Status mStatus;
